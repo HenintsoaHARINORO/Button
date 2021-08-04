@@ -148,13 +148,23 @@ public class Controller<text> implements Initializable {
                     break;
                 case 1:
                     System.out.println(Complement(OU(OperandA, OperandB)));
-                    Result.setText(Complement(OU(OperandA, OperandB)));
+                    //Result.setText(Complement(OU(OperandA, OperandB)));
+                    String[] res90 = Test(Complement(OU(OperandA, OperandB)));
+                    System.out.println("Retenue "+res90[1]);
+                    System.out.println("Resultat"+res90[0]);
+                    Result.setText(res90[0]);
+                    CarryOut.setText(res90[1]);
                     break;
                 case 2:
                     String res = Complement(OperandA);
                     //System.out.println(res);
                     System.out.println(ET(res, OperandB));
-                    Result.setText(ET(res, OperandB));
+                    String[] res91 = Test(ET(res, OperandB));
+                    System.out.println("Retenue "+res91[1]);
+                    System.out.println("Resultat"+res91[0]);
+                    Result.setText(res91[0]);
+                    CarryOut.setText(res91[1]);
+                    //Result.setText(ET(res, OperandB));
                     break;
                 case 3:
                     System.out.println(0);
@@ -162,27 +172,57 @@ public class Controller<text> implements Initializable {
                     break;
                 case 4:
                     System.out.println(Complement(ET(OperandA, OperandB)));
-                    Result.setText(Complement(ET(OperandA, OperandB)));
+                    //Result.setText(Complement(ET(OperandA, OperandB)));
+                    String[] res92 = Test(Complement(ET(OperandA, OperandB)));
+                    System.out.println("Retenue "+res92[1]);
+                    System.out.println("Resultat"+res92[0]);
+                    Result.setText(res92[0]);
+                    CarryOut.setText(res92[1]);
                     break;
                 case 5:
                     System.out.println(Complement(OperandB));
-                    Result.setText(Complement(OperandB));
+                   // Result.setText(Complement(OperandB));
+                    String[] res93 = Test(Complement(OperandB));
+                    System.out.println("Retenue "+res93[1]);
+                    System.out.println("Resultat"+res93[0]);
+                    Result.setText(res93[0]);
+                    CarryOut.setText(res93[1]);
                     break;
                 case 6:
                     System.out.println(XOR(OperandA, OperandB));
-                    Result.setText(XOR(OperandA, OperandB));
+                    String[] res94 = Test(XOR(OperandA, OperandB));
+                    System.out.println("Retenue "+res94[1]);
+                    System.out.println("Resultat"+res94[0]);
+                    Result.setText(res94[0]);
+                    CarryOut.setText(res94[1]);
+                    //Result.setText(XOR(OperandA, OperandB));
                     break;
                 case 7:
                     System.out.println(ET(OperandA, Complement(OperandB)));
-                    Result.setText(ET(OperandA, Complement(OperandB)));
+                    //Result.setText(ET(OperandA, Complement(OperandB)));
+                    String[] res95 = Test(ET(OperandA, Complement(OperandB)));
+                    System.out.println("Retenue "+res95[1]);
+                    System.out.println("Resultat"+res95[0]);
+                    Result.setText(res95[0]);
+                    CarryOut.setText(res95[1]);
                     break;
                 case 8:
                     System.out.println(OU(Complement(OperandA), OperandB));
-                    Result.setText(OU(Complement(OperandA), OperandB));
+                    //Result.setText(OU(Complement(OperandA), OperandB));
+                    String[] res96 = Test(OU(Complement(OperandA), OperandB));
+                    System.out.println("Retenue "+res96[1]);
+                    System.out.println("Resultat"+res96[0]);
+                    Result.setText(res96[0]);
+                    CarryOut.setText(res96[1]);
                     break;
                 case 9:
                     System.out.println(Complement(XOR(OperandA, OperandB)));
-                    Result.setText(Complement(XOR(OperandA, OperandB)));
+                    //Result.setText(Complement(XOR(OperandA, OperandB)));
+                    String[] res97 = Test(Complement(XOR(OperandA, OperandB)));
+                    System.out.println("Retenue "+res97[1]);
+                    System.out.println("Resultat"+res97[0]);
+                    Result.setText(res97[0]);
+                    CarryOut.setText(res97[1]);
                     break;
                 case 10:
                     System.out.println(OperandB);
@@ -217,29 +257,54 @@ public class Controller<text> implements Initializable {
                 case 0:
                     String res31 = Integer.toBinaryString(A+1);
                     System.out.println(res31);
+                    String[] res96 = Test(res31);
+                    System.out.println("Retenue "+res96[1]);
+                    System.out.println("Resultat"+res96[0]);
+                    Result.setText(res96[0]);
+                    CarryOut.setText(res96[1]);
+                    //Result.setText(res31);
                     break;
                 case 1:
                     int res32 = Integer.parseInt(res26,2) +1;
                     String res33 = Integer.toBinaryString(res32);
                     System.out.println(res33);
+                    //Result.setText(res33);
+                    String[] res97 = Test(res33);
+                    System.out.println("Retenue "+res97[1]);
+                    System.out.println("Resultat"+res97[0]);
+                    Result.setText(res97[0]);
+                    CarryOut.setText(res97[1]);
                     break;
                 case 2:
                     int res34 = Integer.parseInt(res16,2) +1;
                     String res35 = Integer.toBinaryString(res34);
                     System.out.println(res35);
+                    String[] res78 = Test(res35);
+                    System.out.println("Retenue "+res78[1]);
+                    System.out.println("Resultat"+res78[0]);
+                    Result.setText(res78[0]);
+                    CarryOut.setText(res78[1]);
+                    //Result.setText(res35);
                     break;
                 case 3:
                     System.out.println("0");
+                    Result.setText("0");
                     break;
                 case 4:
                     String res= ADD(OperandA,ET(OperandA,Complement(OperandB)));
                     int res36 = Integer.parseInt(res,2)+1;
                     String res37 = Integer.toBinaryString(res36);
                     System.out.println(res37);
-                    String res38 =Res(res37);
+                    String[] res90 = Test(res37);
+                    System.out.println("Retenue"+res90[1]);
+                    System.out.println("resultat"+res90[0]);
+
+                    /*String res38 =Res(res37);
                     String Retenue6 = CarryOut(res37);
                     System.out.println("Resultat: "+res38);
                     System.out.println("Retenue: "+Retenue6);
+                    Result.setText(res37);*/
+                    //CarryOut.setText(Retenue6);
                     break;
                 case 5:
                     String res2 = OU(OperandA,OperandB);
@@ -248,89 +313,119 @@ public class Controller<text> implements Initializable {
                     int res52 = Integer.parseInt(res4,2)+1;
                     String res39 = Integer.toBinaryString(res52);
                     System.out.println(res39);
-                    String res5 = Res(res39);
+                    String[] res77 = Test(res39);
+                    System.out.println("Retenue "+res77[1]);
+                    System.out.println("Resultat"+res77[0]);
+                    Result.setText(res77[0]);
+                    CarryOut.setText(res77[1]);
+                    /*String res5 = Res(res39);
                     String REtenue1 = CarryOut(res39);
                     System.out.println("Resultat: "+res5);
                     System.out.println("Retenue: "+REtenue1);
+                    Result.setText(res5);
+                    CarryOut.setText(REtenue1);*/
 
                     break;
                 case 6:
-                    String res6 =subtract(OperandA ,OperandB);
-                    int Res1=Integer.parseInt(res6,2);
-                    int Res2= Res1 - 1;
-                    String res7 = Integer.toBinaryString(Res2);
-                    String res8 = Bits(res7);
-                    System.out.println(res8);
+                    String res7 =subtract1(OperandA ,OperandB);
+
+                    System.out.println(res7);
+                    String[] res76 = Test(res7);
+                    System.out.println("Retenue "+res76[1]);
+                    System.out.println("Resultat"+res76[0]);
+                    Result.setText(res76[0]);
+                    CarryOut.setText(res76[1]);
+                    //Result.setText(res8);
                     break;
                 case 7:
                     String res9 = ET(OperandA,Complement(OperandB));
-
                     System.out.println(res9);
+                    String[] res75 = Test(res9);
+                    System.out.println("Retenue "+res75[1]);
+                    System.out.println("Resultat"+res75[0]);
+                    Result.setText(res75[0]);
+                    CarryOut.setText(res75[1]);
+                    //Result.setText(res9);
                     break;
                 case 8:
                     String res12 = add(OperandA,res11);
                     int res40= Integer.parseInt(res12,2)+1;
                     String res41 = Integer.toBinaryString(res40);
                     System.out.println(res41);
-                    String res13 = Res(res41);
-                    String REtenue2 = CarryOut(res41);
-                    System.out.println("Resultat: "+res13);
-                    System.out.println("Retenue: "+REtenue2);
+                    String[] res74 = Test(res41);
+                    System.out.println("Retenue "+res74[1]);
+                    System.out.println("Resultat"+res74[0]);
+                    Result.setText(res74[0]);
+                    CarryOut.setText(res74[1]);
                     break;
                 case 9:
                     String res14 = add(OperandA,OperandB);
                     int res42 = Integer.parseInt(res14,2)+1;
                     String res43 = Integer.toBinaryString(res42);
                     System.out.println(res43);
-                    String res15 = Res(res43);
-                    String REtenue3 = CarryOut(res43);
-                    System.out.println("Resultat: "+res15);
-                    System.out.println("Retenue: "+REtenue3);
+                    String[] res73 = Test(res43);
+                    System.out.println("Retenue "+res73[1]);
+                    System.out.println("Resultat"+res73[0]);
+                    Result.setText(res73[0]);
+                    CarryOut.setText(res73[1]);
                     break;
                 case 10:
                     String res17 = add(res16,res11);
                     int res44 = Integer.parseInt(res17,2)+1;
                     String res45 = Integer.toBinaryString(res44);
                     System.out.println(res45);
-
-                    String res18 = Res(res45);
-                    String REtenue4 = CarryOut(res45);
-                    System.out.println("Resultat: "+res18);
-                    System.out.println("Retenue: "+REtenue4);
+                    String[] res72 = Test(res45);
+                    System.out.println("Retenue "+res72[1]);
+                    System.out.println("Resultat"+res72[0]);
+                    Result.setText(res72[0]);
+                    CarryOut.setText(res72[1]);
                     break;
                 case 11:
                     System.out.println(res11);
+                    String[] res71 = Test(res11);
+                    System.out.println("Retenue "+res71[1]);
+                    System.out.println("Resultat"+res71[0]);
+                    Result.setText(res71[0]);
+                    CarryOut.setText(res71[1]);
+                    //Result.setText(res11);
                     break;
                 case 12:
                     String res24 = ADD(OperandA,OperandA);
                     int res46 = Integer.parseInt(res24,2)+1;
                     String res47 = Integer.toBinaryString(res46);
                     System.out.println(res47);
+                    String[] res70 = Test(res47);
+                    System.out.println("Retenue "+res70[1]);
+                    System.out.println("Resultat"+res70[0]);
+                    Result.setText(res70[0]);
+                    CarryOut.setText(res70[1]);
+                    //Result.setText(res47);
                     break;
                 case 13:
                     String res25 = ADD(res26,OperandA);
                     int res48 = Integer.parseInt(res25,2)+1;
                     String res49 = Integer.toBinaryString(res48);
                     System.out.println(res49);
-                    String res61 = Res(res49);
-                    String REtenue6 = CarryOut(res49);
-                    System.out.println("Resultat: "+res61);
-                    System.out.println("Retenue: "+REtenue6);
+                    String[] res69 = Test(res49);
+                    System.out.println("Retenue "+res69[1]);
+                    System.out.println("Resultat"+res69[0]);
+                    Result.setText(res69[0]);
+                    CarryOut.setText(res69[1]);
                     break;
                 case 14:
                     String res27 = ADD(res16,OperandA);
                     int res50 = Integer.parseInt(res27,2)+1;
                     String res51 = Integer.toBinaryString(res50);
-
                     System.out.println(res51);
-                    String res30 = Res(res51);
-                    String REtenue5 = CarryOut(res51);
-                    System.out.println("Resultat: "+res30);
-                    System.out.println("Retenue: "+REtenue5);
+                    String[] res68 = Test(res51);
+                    System.out.println("Retenue "+res68[1]);
+                    System.out.println("Resultat"+res68[0]);
+                    Result.setText(res68[0]);
+                    CarryOut.setText(res68[1]);
                     break;
                 case 15:
-
                     System.out.println(OperandA);
+                    Result.setText(OperandA);
                     break;
 
             }
@@ -339,102 +434,144 @@ public class Controller<text> implements Initializable {
             switch (intSelectionS) {
                 case 0:
                     System.out.println(OperandA);
+                    Result.setText(OperandA);
                     break;
                 case 1:
                     System.out.println(res26);
+                    String[] res96 = Test(res26);
+                    System.out.println("Retenue "+res96[1]);
+                    System.out.println("Resultat"+res96[0]);
+                    Result.setText(res96[0]);
+                    CarryOut.setText(res96[1]);
+                    //Result.setText(res26);
                     break;
                 case 2:
                     //String res = Complement(operandA);
                     //System.out.println(res);
                     System.out.println(res16);
+                    String[] res95 = Test(res16);
+                    System.out.println("Retenue "+res95[1]);
+                    System.out.println("Resultat"+res95[0]);
+                    Result.setText(res95[0]);
+                    CarryOut.setText(res95[1]);
+                    //Result.setText(res16);
                     break;
                 case 3:
                     System.out.println("-1");
+                    Result.setText("-1");
                     break;
                 case 4:
                     String res= ADD(OperandA,ET(OperandA,Complement(OperandB)));
-                    String res1 =Res(res);
-                    String retenue = CarryOut(res);
-                    System.out.println("Resultat: "+res1);
-                    System.out.println("Retenue: "+retenue);
+                    String[] res94 = Test(res);
+                    System.out.println("Retenue "+res94[1]);
+                    System.out.println("Resultat"+res94[0]);
+                    Result.setText(res94[0]);
+                    CarryOut.setText(res94[1]);
                     break;
                 case 5:
                     String res2 = OU(OperandA,OperandB);
-
                     String res4 = ADD(res2,res3);
-                    String res5 = Res(res4);
-                    String REtenue1 = CarryOut(res4);
-                    System.out.println("Resultat: "+res5);
-                    System.out.println("Retenue: "+REtenue1);
-
+                    String[] res93 = Test(res4);
+                    System.out.println("Retenue "+res93[1]);
+                    System.out.println("Resultat"+res93[0]);
+                    Result.setText(res93[0]);
+                    CarryOut.setText(res93[1]);
                     break;
                 case 6:
                     String res6 =subtract(OperandA ,OperandB);
-
-
                     System.out.println(res6);
+                    //Result.setText(res6);
+                    String[] res92 = Test(res6);
+                    System.out.println("Retenue "+res92[1]);
+                    System.out.println("Resultat"+res92[0]);
+                    Result.setText(res92[0]);
+                    CarryOut.setText(res92[1]);
                     break;
                 case 7:
                     String res9 = ET(OperandA,Complement(OperandB));
                     int Res3 =Integer.parseInt(res9 , 2);
                     String res10 = Integer.toBinaryString(Res3 -1);
-                    System.out.println(Bits(res10));
+                    String[] res91 = Test(res10);
+                    System.out.println("Retenue "+res91[1]);
+                    System.out.println("Resultat"+res91[0]);
+                    Result.setText(res91[0]);
+                    CarryOut.setText(res91[1]);
                     break;
                 case 8:
                     String res12 = add(OperandA,res11);
                     System.out.println(res12);
-                    String res13 = Res(res12);
-                    String REtenue2 = CarryOut(res12);
-                    System.out.println("Resultat: "+res13);
-                    System.out.println("Retenue: "+REtenue2);
+                    String[] res90 = Test(res12);
+                    System.out.println("Retenue "+res90[1]);
+                    System.out.println("Resultat"+res90[0]);
+                    Result.setText(res90[0]);
+                    CarryOut.setText(res90[1]);
                     break;
                 case 9:
                     String res14 = add(OperandA,OperandB);
-                    String res15 = Res(res14);
-                    String REtenue3 = CarryOut(res14);
-                    System.out.println("Resultat: "+res15);
-                    System.out.println("Retenue: "+REtenue3);
+                    String[] res89 = Test(res14);
+                    System.out.println("Retenue "+res89[1]);
+                    System.out.println("Resultat"+res89[0]);
+                    Result.setText(res89[0]);
+                    CarryOut.setText(res89[1]);
                     break;
                 case 10:
                     String res17 = add(res16,res11);
                     System.out.println(res17);
-                    String res18 = Res(res17);
-                    String REtenue4 = CarryOut(res17);
-                    System.out.println("Resultat: "+res18);
-                    System.out.println("Retenue: "+REtenue4);
+                    String[] res88 = Test(res17);
+                    System.out.println("Retenue "+res88[1]);
+                    System.out.println("Resultat"+res88[0]);
+                    Result.setText(res88[0]);
+                    CarryOut.setText(res88[1]);
                     break;
                 case 11:
                     int res19 = Integer.parseInt(res11,2);
                     int res20 = res19 - 1;
                     String res21 = Integer.toBinaryString(res20);
-                    System.out.println(Bits(res21));
+                    System.out.println(res21);
+                    String[] res87 = Test(res21);
+                    System.out.println("Retenue "+res87[1]);
+                    System.out.println("Resultat"+res87[0]);
+                    Result.setText(res87[0]);
+                    CarryOut.setText(res87[1]);
                     break;
                 case 12:
                     int res22 = A <<1;
                     String res23 = Integer.toBinaryString(res22);
                     String res24 = ADD(OperandA,res23);
                     System.out.println(res24);
+                    String[] res86 = Test(res24);
+                    System.out.println("Retenue "+res86[1]);
+                    System.out.println("Resultat"+res86[0]);
+                    Result.setText(res86[0]);
+                    CarryOut.setText(res86[1]);
                     break;
                 case 13:
                     String res25 = ADD(res26,OperandA);
                     System.out.println(res25);
-                    String res31 = Res(res25);
-                    String REtenue6 = CarryOut(res25);
-                    System.out.println("Resultat: "+res31);
-                    System.out.println("Retenue: "+REtenue6);
+                    String[] res85 = Test(res25);
+                    System.out.println("Retenue "+res85[1]);
+                    System.out.println("Resultat"+res85[0]);
+                    Result.setText(res85[0]);
+                    CarryOut.setText(res85[1]);
                     break;
                 case 14:
                     String res27 = ADD(res16,OperandA);
                     System.out.println(res27);
-                    String res30 = Res(res27);
-                    String REtenue5 = CarryOut(res27);
-                    System.out.println("Resultat: "+res30);
-                    System.out.println("Retenue: "+REtenue5);
+                    String[] res84 = Test(res27);
+                    System.out.println("Retenue "+res84[1]);
+                    System.out.println("Resultat"+res84[0]);
+                    Result.setText(res84[0]);
+                    CarryOut.setText(res84[1]);
                     break;
                 case 15:
                     int res28 =A -1 ;
                     String res29 = Integer.toBinaryString(res28);
                     System.out.println(res29);
+                    String[] res83 = Test(res29);
+                    System.out.println("Retenue "+res83[1]);
+                    System.out.println("Resultat"+res83[0]);
+                    Result.setText(res83[0]);
+                    CarryOut.setText(res83[1]);
                     break;
 
             }
@@ -461,15 +598,33 @@ public class Controller<text> implements Initializable {
     public static String subtract(String a, String b) {
         int a1 = Integer.parseInt(a, 2);
         int b1 = Integer.parseInt(b, 2);
-        int sum = a1-b1;
-        return Integer.toBinaryString(sum);
+        Long sum =(long) a1+(~b1+1);
+        String res= Long.toBinaryString(sum);
+        if(res.length()>4){
+            String res1 = res.substring(res.length() -4);
+            return res1;
+        }else {
+            return res;
+        }
+
+    }
+    public static String subtract1(String a, String b) {
+        int a1 = Integer.parseInt(a, 2);
+        int b1 = Integer.parseInt(b, 2);
+        Long sum =(long) a1+(~b1+1)-1;
+        String res= Long.toBinaryString(sum);
+        if(res.length()>4){
+            String res1 = res.substring(res.length() -4);
+            return res1;
+        }else {
+            return res;
+        }
+
     }
     public static String Res(String a){
         String res5=" ";
         if (a.length()>4) {
             res5 = a.substring(1,5);
-
-
         }
         return  res5;
     }
@@ -482,7 +637,33 @@ public class Controller<text> implements Initializable {
 
         return  b;
     }
+    public static String[] Test(String a){
+            String result[] = new String[2];
 
+            if (a.length()>4){
+                result[0]= a.substring(1,5);
+                result[1]= a.substring(0,1);
+            }
+            else if (a.length()==3){
+                result[0]="0"+a;
+                result[1]= "0";
+            }
+            else if (a.length()==2){
+                result[0]="00"+a;
+                result[1]= "0";
+            }
+            else if (a.length()==1){
+                result[0]="000"+a;
+                result[1]= "0";
+            }
+            else if (a.length()==4){
+                result[0] =a;
+                result[1] = "0";
+            }
+        return result;
+
+
+    }
     public  static String add(String a,String b){
         int b1= Integer.parseInt(a,2);
         int b2= Integer.parseInt(b,2);
