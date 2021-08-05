@@ -5,20 +5,82 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+//import javax.sound.sampled.Line;
 import javax.swing.*;
 import java.awt.*;
+//import java.awt.Rectangle;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 
 public class Controller<text> implements Initializable {
+
+    @FXML
+    private Rectangle Rect0;
+
+    @FXML
+    private Rectangle Rect6;
+
+    @FXML
+    private Rectangle Rect3;
+
+    @FXML
+    private Rectangle Rect1;
+
+    @FXML
+    private Rectangle Rect5;
+    @FXML
+    private Button Play;
+
+    @FXML
+    private Rectangle Rect4;
+
+    @FXML
+    private Rectangle Rect2;
+
+
+    @FXML
+    private Rectangle square0;
+
+    @FXML
+    private Line line3;
+
+    @FXML
+    private Line line2;
+
+    @FXML
+    private Line line1;
+
+    @FXML
+    private Line line11;
+
+    @FXML
+    private Line line22;
+
+    @FXML
+    private Line line33;
+
+    @FXML
+    private Line Line;
+
+    @FXML
+    private Line line00;
 
     @FXML
     private Button btn;
@@ -76,9 +138,34 @@ public class Controller<text> implements Initializable {
     /**
      * Initializes the controller class.
      */
+
+
+    public Connection getConnection() {
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/GestionConcours", "root", "henintsoa123");
+            return conn;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void executeQuery(String query) {
+        Connection conn = getConnection();
+        Statement st;
+        try {
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
-    private void refresh() {
-        //toggleButton1.setText("0");
+    private Button Refresh;
+
+    @FXML
+    private void Refresh() {
         toggleButtonA0.setSelected(false);
         toggleButtonA1.setSelected(false);
         toggleButtonA2.setSelected(false);
@@ -91,12 +178,30 @@ public class Controller<text> implements Initializable {
         toggleButtonS1.setSelected(false);
         toggleButtonS2.setSelected(false);
         toggleButtonS3.setSelected(false);
+        M.setText(" ");
+        Cn.setText(" ");
+        CarryOut.setText(" ");
+        Result.setText( " ");
+        Rect0.setFill(Color.valueOf("#e4dede"));
+        Rect2.setFill(Color.valueOf("#e4dede"));
+        Rect3.setFill(Color.valueOf("#e4dede"));
+        Rect5.setFill(Color.valueOf("#e4dede"));
+        Rect6.setFill(Color.valueOf("#e4dede"));
+        Rect1.setFill(Color.valueOf("#e4dede"));
+        Rect4.setFill(Color.valueOf("#e4dede"));
+        Play.setStyle("-fx-background-color:red;");
+
 
     }
-
+    @FXML private void save(){
+        System.out.println("hello");
+        Save.Save1();
+    }
     @FXML
-    private void button() {
-
+    private void Play() {
+        Play.setStyle("-fx-background-color:green;");
+//
+//        run.setFill(Color.GREEN);
         /*System.out.println("Button1");
         String text=A0.getText();
         int b1 = Integer.parseInt(text);
@@ -140,11 +245,24 @@ public class Controller<text> implements Initializable {
         String res3 = ET(OperandA,Complement(OperandB));
         int A = Integer.parseInt(OperandA,2);
 
-        if(M1==1) {
+        if((M1==1) && (Cn==0) ) {
             switch (intSelectionS) {
                 case 0:
                     System.out.println(Complement(OperandA));
-                    Result.setText(Complement(OperandA));
+                    String res1=Complement(OperandA);
+                    Result.setText(res1);
+                    CarryOut.setText("0");
+                    System.out.println(Integer.parseInt(res1,2));
+                    affichage(res1);
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now = LocalDateTime.now();
+
+                    String query1 =
+                            "INSERT INTO ALU" +
+                                    "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
+                                    "VALUES" +
+                                    "('" +dtf.format(now) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +Integer.toBinaryString(Cn)  + "', '" +res1 + "', '" +CarryOut.getText() + "');\n";
+                    executeQuery(query1);
                     break;
                 case 1:
                     System.out.println(Complement(OU(OperandA, OperandB)));
@@ -153,6 +271,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res90[1]);
                     System.out.println("Resultat"+res90[0]);
                     Result.setText(res90[0]);
+                    affichage(res90[0]);
                     CarryOut.setText(res90[1]);
                     break;
                 case 2:
@@ -163,12 +282,15 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res91[1]);
                     System.out.println("Resultat"+res91[0]);
                     Result.setText(res91[0]);
+                    affichage(res91[0]);
                     CarryOut.setText(res91[1]);
                     //Result.setText(ET(res, OperandB));
                     break;
                 case 3:
                     System.out.println(0);
-                    Result.setText("0");
+                    Result.setText("0000");
+                    CarryOut.setText("0");
+                    affichage("0");
                     break;
                 case 4:
                     System.out.println(Complement(ET(OperandA, OperandB)));
@@ -177,6 +299,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res92[1]);
                     System.out.println("Resultat"+res92[0]);
                     Result.setText(res92[0]);
+                    affichage(res92[0]);
                     CarryOut.setText(res92[1]);
                     break;
                 case 5:
@@ -186,6 +309,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res93[1]);
                     System.out.println("Resultat"+res93[0]);
                     Result.setText(res93[0]);
+                    affichage(res93[0]);
                     CarryOut.setText(res93[1]);
                     break;
                 case 6:
@@ -195,6 +319,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res94[0]);
                     Result.setText(res94[0]);
                     CarryOut.setText(res94[1]);
+                    affichage(res94[0]);
                     //Result.setText(XOR(OperandA, OperandB));
                     break;
                 case 7:
@@ -205,6 +330,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res95[0]);
                     Result.setText(res95[0]);
                     CarryOut.setText(res95[1]);
+                    affichage(res95[0]);
                     break;
                 case 8:
                     System.out.println(OU(Complement(OperandA), OperandB));
@@ -213,6 +339,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res96[1]);
                     System.out.println("Resultat"+res96[0]);
                     Result.setText(res96[0]);
+                    affichage(res96[0]);
                     CarryOut.setText(res96[1]);
                     break;
                 case 9:
@@ -222,31 +349,45 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res97[1]);
                     System.out.println("Resultat"+res97[0]);
                     Result.setText(res97[0]);
+                    affichage(res97[0]);
                     CarryOut.setText(res97[1]);
                     break;
                 case 10:
                     System.out.println(OperandB);
                     Result.setText(OperandB);
+                    CarryOut.setText("0");
+                    affichage(OperandB);
                     break;
                 case 11:
                     System.out.println(ET(OperandA, OperandB));
+                    String res0=ET(OperandA, OperandB);
                     Result.setText(ET(OperandA, OperandB));
+                    CarryOut.setText("0");
+                    affichage(res0);
                     break;
                 case 12:
                     System.out.println(1);
                     Result.setText("1");
+                    CarryOut.setText("0");
+                    affichage("1");
                     break;
                 case 13:
                     System.out.println(OU(OperandA, Complement(OperandB)));
                     Result.setText(OU(OperandA, Complement(OperandB)));
+                    CarryOut.setText("0");
+                    affichage(OU(OperandA, Complement(OperandB)));
                     break;
                 case 14:
                     System.out.println(OU(OperandA, OperandB));
                     Result.setText(OU(OperandA, OperandB));
+                    affichage(OU(OperandA, OperandB));
+                    CarryOut.setText("0");
                     break;
                 case 15:
                     System.out.println(OperandA);
                     Result.setText(OperandA);
+                    affichage(OperandA);
+                    CarryOut.setText("0");
                     break;
 
 
@@ -261,6 +402,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res96[1]);
                     System.out.println("Resultat"+res96[0]);
                     Result.setText(res96[0]);
+                    affichage(res96[0]);
                     CarryOut.setText(res96[1]);
                     //Result.setText(res31);
                     break;
@@ -273,6 +415,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res97[1]);
                     System.out.println("Resultat"+res97[0]);
                     Result.setText(res97[0]);
+                    affichage(res97[0]);
                     CarryOut.setText(res97[1]);
                     break;
                 case 2:
@@ -283,12 +426,16 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res78[1]);
                     System.out.println("Resultat"+res78[0]);
                     Result.setText(res78[0]);
+                    affichage(res78[0]);
                     CarryOut.setText(res78[1]);
                     //Result.setText(res35);
                     break;
                 case 3:
-                    System.out.println("0");
-                    Result.setText("0");
+                    String res22 ="0";
+                    System.out.println(res22);
+                    affichage(res22);
+                    Result.setText("0000");
+                    CarryOut.setText("0");
                     break;
                 case 4:
                     String res= ADD(OperandA,ET(OperandA,Complement(OperandB)));
@@ -298,7 +445,9 @@ public class Controller<text> implements Initializable {
                     String[] res90 = Test(res37);
                     System.out.println("Retenue"+res90[1]);
                     System.out.println("resultat"+res90[0]);
-
+                    Result.setText(res90[0]);
+                    affichage(res90[0]);
+                    CarryOut.setText(res90[1]);
                     /*String res38 =Res(res37);
                     String Retenue6 = CarryOut(res37);
                     System.out.println("Resultat: "+res38);
@@ -318,6 +467,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res77[0]);
                     Result.setText(res77[0]);
                     CarryOut.setText(res77[1]);
+                    affichage(res77[0]);
                     /*String res5 = Res(res39);
                     String REtenue1 = CarryOut(res39);
                     System.out.println("Resultat: "+res5);
@@ -334,6 +484,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res76[1]);
                     System.out.println("Resultat"+res76[0]);
                     Result.setText(res76[0]);
+                    affichage(res76[0]);
                     CarryOut.setText(res76[1]);
                     //Result.setText(res8);
                     break;
@@ -345,6 +496,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res75[0]);
                     Result.setText(res75[0]);
                     CarryOut.setText(res75[1]);
+                    affichage(res75[0]);
                     //Result.setText(res9);
                     break;
                 case 8:
@@ -357,6 +509,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res74[0]);
                     Result.setText(res74[0]);
                     CarryOut.setText(res74[1]);
+                    affichage(res74[0]);
                     break;
                 case 9:
                     String res14 = add(OperandA,OperandB);
@@ -368,6 +521,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res73[0]);
                     Result.setText(res73[0]);
                     CarryOut.setText(res73[1]);
+                    affichage(res73[0]);
                     break;
                 case 10:
                     String res17 = add(res16,res11);
@@ -378,6 +532,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Retenue "+res72[1]);
                     System.out.println("Resultat"+res72[0]);
                     Result.setText(res72[0]);
+                    affichage(res72[0]);
                     CarryOut.setText(res72[1]);
                     break;
                 case 11:
@@ -387,6 +542,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res71[0]);
                     Result.setText(res71[0]);
                     CarryOut.setText(res71[1]);
+                    affichage(res71[0]);
                     //Result.setText(res11);
                     break;
                 case 12:
@@ -399,6 +555,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res70[0]);
                     Result.setText(res70[0]);
                     CarryOut.setText(res70[1]);
+                    affichage(res70[0]);
                     //Result.setText(res47);
                     break;
                 case 13:
@@ -411,6 +568,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res69[0]);
                     Result.setText(res69[0]);
                     CarryOut.setText(res69[1]);
+                    affichage(res69[0]);
                     break;
                 case 14:
                     String res27 = ADD(res16,OperandA);
@@ -422,10 +580,13 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res68[0]);
                     Result.setText(res68[0]);
                     CarryOut.setText(res68[1]);
+                    affichage(res68[0]);
                     break;
                 case 15:
                     System.out.println(OperandA);
                     Result.setText(OperandA);
+                    CarryOut.setText("0");
+                    affichage(OperandA);
                     break;
 
             }
@@ -443,6 +604,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res96[0]);
                     Result.setText(res96[0]);
                     CarryOut.setText(res96[1]);
+                    affichage(res96[0]);
                     //Result.setText(res26);
                     break;
                 case 2:
@@ -454,11 +616,14 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res95[0]);
                     Result.setText(res95[0]);
                     CarryOut.setText(res95[1]);
+                    affichage(res95[0]);
                     //Result.setText(res16);
                     break;
                 case 3:
                     System.out.println("-1");
-                    Result.setText("-1");
+                    Result.setText("1111");
+                    affichage("1111");
+                    CarryOut.setText("0");
                     break;
                 case 4:
                     String res= ADD(OperandA,ET(OperandA,Complement(OperandB)));
@@ -467,6 +632,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res94[0]);
                     Result.setText(res94[0]);
                     CarryOut.setText(res94[1]);
+                    affichage(res94[0]);
                     break;
                 case 5:
                     String res2 = OU(OperandA,OperandB);
@@ -476,6 +642,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res93[0]);
                     Result.setText(res93[0]);
                     CarryOut.setText(res93[1]);
+                    affichage(res93[0]);
                     break;
                 case 6:
                     String res6 =subtract(OperandA ,OperandB);
@@ -486,6 +653,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res92[0]);
                     Result.setText(res92[0]);
                     CarryOut.setText(res92[1]);
+                    affichage(res92[0]);
                     break;
                 case 7:
                     String res9 = ET(OperandA,Complement(OperandB));
@@ -496,6 +664,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res91[0]);
                     Result.setText(res91[0]);
                     CarryOut.setText(res91[1]);
+                    affichage(res91[0]);
                     break;
                 case 8:
                     String res12 = add(OperandA,res11);
@@ -505,6 +674,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res90[0]);
                     Result.setText(res90[0]);
                     CarryOut.setText(res90[1]);
+                    affichage(res90[0]);
                     break;
                 case 9:
                     String res14 = add(OperandA,OperandB);
@@ -513,6 +683,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res89[0]);
                     Result.setText(res89[0]);
                     CarryOut.setText(res89[1]);
+                    affichage(res89[0]);
                     break;
                 case 10:
                     String res17 = add(res16,res11);
@@ -522,6 +693,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res88[0]);
                     Result.setText(res88[0]);
                     CarryOut.setText(res88[1]);
+                    affichage(res88[0]);
                     break;
                 case 11:
                     int res19 = Integer.parseInt(res11,2);
@@ -533,6 +705,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res87[0]);
                     Result.setText(res87[0]);
                     CarryOut.setText(res87[1]);
+                    affichage(res87[0]);
                     break;
                 case 12:
                     int res22 = A <<1;
@@ -544,6 +717,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res86[0]);
                     Result.setText(res86[0]);
                     CarryOut.setText(res86[1]);
+                    affichage(res86[0]);
                     break;
                 case 13:
                     String res25 = ADD(res26,OperandA);
@@ -553,6 +727,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res85[0]);
                     Result.setText(res85[0]);
                     CarryOut.setText(res85[1]);
+                    affichage(res85[0]);
                     break;
                 case 14:
                     String res27 = ADD(res16,OperandA);
@@ -562,6 +737,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res84[0]);
                     Result.setText(res84[0]);
                     CarryOut.setText(res84[1]);
+                    affichage(res84[0]);
                     break;
                 case 15:
                     int res28 =A -1 ;
@@ -572,6 +748,7 @@ public class Controller<text> implements Initializable {
                     System.out.println("Resultat"+res83[0]);
                     Result.setText(res83[0]);
                     CarryOut.setText(res83[1]);
+                    affichage(res83[0]);
                     break;
 
             }
@@ -735,13 +912,166 @@ public class Controller<text> implements Initializable {
         }
 
     }
+    public  void affichage(String a){
+            int res=Integer.parseInt(a,2);
+            switch (res){
+                case 0:
+                    Rect0.setFill(Color.RED);
+                    Rect1.setFill(Color.RED);
+                    Rect2.setFill(Color.RED);
+                    Rect3.setFill(Color.valueOf("#e4dede"));
+                    Rect4.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    break;
+                case 1:
+                    Rect0.setFill(Color.valueOf("#e4dede"));
+                    Rect2.setFill(Color.valueOf("#e4dede"));
+                    Rect3.setFill(Color.valueOf("#e4dede"));
+                    Rect5.setFill(Color.valueOf("#e4dede"));
+                    Rect6.setFill(Color.valueOf("#e4dede"));
+                    Rect1.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    break;
+                case 2:
+                    Rect0.setFill(Color.RED);
+                    Rect1.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    Rect2.setFill(Color.valueOf("#e4dede"));
+                    Rect4.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 3:
+                    Rect0.setFill(Color.RED);
+                    Rect2.setFill(Color.valueOf("#e4dede"));
+                    Rect1.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect5.setFill(Color.valueOf("#e4dede"));
+                    Rect6.setFill(Color.RED);
+                    break;
+                case 4:
+                    Rect2.setFill(Color.RED);
+                    Rect1.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect0.setFill(Color.valueOf("#e4dede"));
+                    Rect5.setFill(Color.valueOf("#e4dede"));
+                    Rect6.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 5:
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    Rect1.setFill(Color.valueOf("#e4dede"));
+                    Rect5.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 6:
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    Rect1.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 7:
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect1.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect3.setFill(Color.valueOf("#e4dede"));
+                    Rect5.setFill(Color.valueOf("#e4dede"));
+                    Rect6.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 8:
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    Rect1.setFill(Color.RED);
+                    break;
+                case 9:
+                    Rect5.setFill(Color.valueOf("#e4dede"));
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect1.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    break;
+                case 10:
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect1.setFill(Color.RED);
+                    Rect6.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 11:
+                    Rect0.setFill(Color.valueOf("#e4dede"));
+                    Rect1.setFill(Color.valueOf("#e4dede"));
+                    Rect2.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    break;
+                case 12:
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    Rect1.setFill(Color.valueOf("#e4dede"));
+                    Rect3.setFill(Color.valueOf("#e4dede"));
+                    Rect4.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 13:
+                    Rect1.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect4.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    Rect2.setFill(Color.valueOf("#e4dede"));
+                    Rect0.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 14:
+                    Rect2.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect6.setFill(Color.RED);
+                    Rect1.setFill(Color.valueOf("#e4dede"));
+                    Rect0.setFill(Color.RED);
+                    Rect4.setFill(Color.valueOf("#e4dede"));
+                    break;
+                case 15:
+                    Rect2.setFill(Color.RED);
+                    Rect0.setFill(Color.RED);
+                    Rect3.setFill(Color.RED);
+                    Rect5.setFill(Color.RED);
+                    Rect1.setFill(Color.valueOf("#e4dede"));
+                    Rect4.setFill(Color.valueOf("#e4dede"));
+                    Rect6.setFill(Color.valueOf("#e4dede"));
+
+                    break;
+            }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+            //Rect1.setFill(Color.RED);
+            Line.setStroke(Color.RED);
         // btn.setStyle("-fx-background-color: linear-gradient(to right,#00fffc,#fff600); -fx-background-radius: 25; -fx-border-radius: 25;");
         //btn.setStyle(" -fx-background-radius: 100; -fx-height:30px; -fx-width:30px; -fx-background-color:violet; ");
         //btn.setStyle("-fx-background-color:#dd0808;");
-        btn1.setStyle(" -fx-background-radius: 50%; -fx-height:30px; -fx-width:30px;-fx-background-color:blue; ");
+//        btn1.setStyle(" -fx-background-radius: 50%; -fx-height:30px; -fx-width:30px;-fx-background-color:blue; ");
 
 
         toggleButtonA0.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -794,6 +1124,7 @@ public class Controller<text> implements Initializable {
                 }
             }
         });
+
         toggleButtonB1.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
