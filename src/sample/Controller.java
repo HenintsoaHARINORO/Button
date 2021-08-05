@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -66,6 +67,11 @@ public class Controller<text> implements Initializable {
 
     @FXML
     private Line line1;
+    @FXML
+    private Rectangle Rectangle0;
+
+    @FXML
+    private Label Label0;
 
     @FXML
     private Line line11;
@@ -161,8 +167,34 @@ public class Controller<text> implements Initializable {
             e.printStackTrace();
         }
     }
-    @FXML
-    private Button Refresh;
+
+    @FXML Button Button0;
+    @FXML private void Button0(){
+        if (Button0.getText().equals("0")) {
+            Button0.setText("1");
+            Button0.setStyle("-fx-background-color:green;");
+            Button1.setDisable(true);
+        }
+        else {
+            Button0.setText("0");
+            Button0.setStyle("-fx-background-color:red;");
+            Button1.setDisable(false);
+        }
+    }
+    @FXML Button Button1;
+    @FXML private void Button1(){
+        if (Button1.getText().equals("0")) {
+            Button1.setText("1");
+            Button1.setStyle("-fx-background-color:green;");
+            Button1.setDisable(false);
+        }
+        else {
+            Button1.setText("0");
+            Button1.setStyle("-fx-background-color:red;");
+            Button1.setDisable(false);
+        }
+    }
+
 
     @FXML
     private void Refresh() {
@@ -178,8 +210,11 @@ public class Controller<text> implements Initializable {
         toggleButtonS1.setSelected(false);
         toggleButtonS2.setSelected(false);
         toggleButtonS3.setSelected(false);
-        M.setText(" ");
-        Cn.setText(" ");
+        Button0.setText("0");
+        Button1.setText("0");
+        Button0.setStyle("-fx-background-color:red");
+        Button1.setStyle("-fx-background-color:red");
+        Button1.setDisable(false);
         CarryOut.setText(" ");
         Result.setText( " ");
         Rect0.setFill(Color.valueOf("#e4dede"));
@@ -233,10 +268,17 @@ public class Controller<text> implements Initializable {
         System.out.println(SelectionS);
         int intSelectionS = Integer.parseInt(SelectionS, 2);
         System.out.println(intSelectionS);
-        String C=Cn.getText();
-        int Cn=Integer.parseInt(C,2);
-        System.out.println(Cn);
-        String Mn=M.getText();
+        int Cn=0;
+        if (Button1.isDisabled()){
+            System.out.println("Nothing");
+        }else{
+            String C=Button1.getText();
+            Cn=Integer.parseInt(C,2);
+            System.out.println(Cn);
+
+        }
+
+        String Mn=Button0.getText();
         int M1=Integer.parseInt(Mn,2);
         System.out.println(M1);
         String res11=ET(OperandA,OperandB);
@@ -245,7 +287,7 @@ public class Controller<text> implements Initializable {
         String res3 = ET(OperandA,Complement(OperandB));
         int A = Integer.parseInt(OperandA,2);
 
-        if((M1==1) && (Cn==0) ) {
+        if((M1==1)  ) {
             switch (intSelectionS) {
                 case 0:
                     System.out.println(Complement(OperandA));
@@ -257,12 +299,12 @@ public class Controller<text> implements Initializable {
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                     LocalDateTime now = LocalDateTime.now();
 
-                    String query1 =
+                    String query =
                             "INSERT INTO ALU" +
                                     "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
                                     "VALUES" +
-                                    "('" +dtf.format(now) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +Integer.toBinaryString(Cn)  + "', '" +res1 + "', '" +CarryOut.getText() + "');\n";
-                    executeQuery(query1);
+                                    "('" +dtf.format(now) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +null+ "', '" +res1 + "', '" +CarryOut.getText() + "');\n";
+                    executeQuery(query);
                     break;
                 case 1:
                     System.out.println(Complement(OU(OperandA, OperandB)));
@@ -273,6 +315,14 @@ public class Controller<text> implements Initializable {
                     Result.setText(res90[0]);
                     affichage(res90[0]);
                     CarryOut.setText(res90[1]);
+                    DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now1 = LocalDateTime.now();
+                    String query1 =
+                            "INSERT INTO ALU" +
+                                    "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
+                                    "VALUES" +
+                                    "('" +dtf1.format(now1) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +null+ "', '" +Result.getText() + "', '" +CarryOut.getText() + "');\n";
+                    executeQuery(query1);
                     break;
                 case 2:
                     String res = Complement(OperandA);
@@ -284,6 +334,15 @@ public class Controller<text> implements Initializable {
                     Result.setText(res91[0]);
                     affichage(res91[0]);
                     CarryOut.setText(res91[1]);
+                    DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now2 = LocalDateTime.now();
+                    String query2 =
+                            "INSERT INTO ALU" +
+                                    "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
+                                    "VALUES" +
+                                    "('" +dtf2.format(now2) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +null+ "', '" +Result.getText() + "', '" +CarryOut.getText() + "');\n";
+                    executeQuery(query2);
+
                     //Result.setText(ET(res, OperandB));
                     break;
                 case 3:
@@ -291,6 +350,14 @@ public class Controller<text> implements Initializable {
                     Result.setText("0000");
                     CarryOut.setText("0");
                     affichage("0");
+                    DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now3 = LocalDateTime.now();
+                    String query3 =
+                            "INSERT INTO ALU" +
+                                    "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
+                                    "VALUES" +
+                                    "('" +dtf3.format(now3) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +null+ "', '" +Result.getText() + "', '" +CarryOut.getText() + "');\n";
+                    executeQuery(query3);
                     break;
                 case 4:
                     System.out.println(Complement(ET(OperandA, OperandB)));
@@ -301,6 +368,14 @@ public class Controller<text> implements Initializable {
                     Result.setText(res92[0]);
                     affichage(res92[0]);
                     CarryOut.setText(res92[1]);
+                    DateTimeFormatter dtf4 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now4 = LocalDateTime.now();
+                    String query4 =
+                            "INSERT INTO ALU" +
+                                    "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
+                                    "VALUES" +
+                                    "('" +dtf4.format(now4) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +null+ "', '" +Result.getText() + "', '" +CarryOut.getText() + "');\n";
+                    executeQuery(query4);
                     break;
                 case 5:
                     System.out.println(Complement(OperandB));
@@ -311,6 +386,14 @@ public class Controller<text> implements Initializable {
                     Result.setText(res93[0]);
                     affichage(res93[0]);
                     CarryOut.setText(res93[1]);
+                    DateTimeFormatter dtf5 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now5 = LocalDateTime.now();
+                    String query5 =
+                            "INSERT INTO ALU" +
+                                    "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
+                                    "VALUES" +
+                                    "('" +dtf5.format(now5) + "','"+OperandA+ "','" +OperandB + "','" +Integer.toBinaryString(intSelectionS) + "', '" +Integer.toBinaryString(M1) + "','" +null+ "', '" +Result.getText() + "', '" +CarryOut.getText() + "');\n";
+                    executeQuery(query5);
                     break;
                 case 6:
                     System.out.println(XOR(OperandA, OperandB));
@@ -393,7 +476,7 @@ public class Controller<text> implements Initializable {
 
             }
         }
-        if((M1==0) && (Cn==1)){
+        if((M1==0) && (Cn==0)){
             switch (intSelectionS) {
                 case 0:
                     String res31 = Integer.toBinaryString(A+1);
@@ -591,7 +674,7 @@ public class Controller<text> implements Initializable {
 
             }
         }
-        if((M1==0) && (Cn==0)){
+        if((M1==0) && (Cn==1)){
             switch (intSelectionS) {
                 case 0:
                     System.out.println(OperandA);
@@ -1066,6 +1149,7 @@ public class Controller<text> implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
             //Rect1.setFill(Color.RED);
             Line.setStroke(Color.RED);
         // btn.setStyle("-fx-background-color: linear-gradient(to right,#00fffc,#fff600); -fx-background-radius: 25; -fx-border-radius: 25;");
