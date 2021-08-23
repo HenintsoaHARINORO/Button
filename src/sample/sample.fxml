@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import com.jfoenix.controls.JFXToggleNode?>
-<?import com.jfoenix.controls.JFXTogglePane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -12,168 +11,249 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1272.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1268.0" styleClass="anchor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Line endX="224.5" endY="13.0" layoutX="796.0" layoutY="302.0" startX="224.5" startY="-45.5" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589ed0" height="583.0" layoutX="392.0" layoutY="134.0" stroke="#28cbe1" strokeType="INSIDE" width="290.0" />
-      <Label layoutX="402.0" layoutY="157.0" prefHeight="21.0" prefWidth="25.0" text="A0" />
-      <Label layoutX="402.0" layoutY="193.0" prefHeight="21.0" prefWidth="25.0" text="A1" />
-      <Label layoutX="402.0" layoutY="223.0" prefHeight="21.0" prefWidth="25.0" text="A2" />
-      <Label layoutX="402.0" layoutY="256.0" prefHeight="21.0" prefWidth="25.0" text="A3" />
-      <Line fx:id="Line" endX="320.0" layoutX="803.0" layoutY="168.0" startX="-107.0" />
-      <Line endX="-100.5" endY="149.0" layoutX="1223.0" layoutY="166.0" startX="-100.5" startY="4.0" />
+
+
+      <Line fx:id="lineF32" endX="224.5" endY="13.0" layoutX="796.0" layoutY="302.0" startX="224.5" startY="-45.5" stroke="RED" strokeWidth="3.0" />
+      <Rectangle fx:id="Rectangle" arcHeight="5.0" arcWidth="5.0" fill="#478aff" height="583.0" layoutX="392.0" layoutY="134.0" stroke="#0765b2" strokeType="INSIDE" strokeWidth="8.0" width="290.0" />
+      <Label layoutX="402.0" layoutY="151.0" prefHeight="33.0" prefWidth="36.0" text="A0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <Label layoutX="402.0" layoutY="193.0" prefHeight="21.0" prefWidth="36.0" text="A1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="223.0" prefHeight="21.0" prefWidth="36.0" text="A2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="256.0" prefHeight="21.0" prefWidth="36.0" text="A3" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Line fx:id="line01" endX="320.0" layoutX="803.0" layoutY="168.0" startX="-107.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line02" endX="-100.5" endY="149.0" layoutX="1223.0" layoutY="166.0" startX="-100.5" startY="4.0" stroke="RED" strokeWidth="3.0" />
       <TextField disable="true" layoutX="1016.0" layoutY="367.0" prefHeight="194.0" prefWidth="120.0" />
-      <Label layoutX="658.0" layoutY="246.0" prefHeight="21.0" prefWidth="25.0" text="F3" textFill="WHITE" />
-      <Label layoutX="658.0" layoutY="216.0" prefHeight="21.0" prefWidth="25.0" text="F2" textFill="WHITE" />
-      <Label layoutX="658.0" layoutY="187.0" prefHeight="21.0" prefWidth="25.0" text="F1" textFill="WHITE" />
-      <Label layoutX="658.0" layoutY="157.0" prefHeight="21.0" prefWidth="25.0" text="F0" textFill="WHITE" />
-      <JFXTogglePane layoutX="120.0" layoutY="205.0" prefHeight="1.0" prefWidth="1.0" />
-      <JFXToggleNode layoutX="148.0" layoutY="147.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="138.0" prefWidth="83.0" style="-fx-background-color: pink;">
-         <selectedColor>
-            <Color red="0.08969999849796295" green="0.6899999976158142" blue="0.20806901156902313" opacity="0.20000000298023224" />
-         </selectedColor>
-         <unSelectedColor>
-            <Color red="0.04050000011920929" green="0.8100000023841858" blue="0.1922324001789093" opacity="0.0" />
-         </unSelectedColor></JFXToggleNode>
-      <JFXToggleNode layoutX="151.0" layoutY="472.0" prefHeight="138.0" prefWidth="83.0" style="-fx-background-color: pink;" />
-      <JFXToggleButton fx:id="toggleButtonA3" layoutX="152.0" layoutY="237.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonA2" layoutX="152.0" layoutY="205.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonA1" layoutX="152.0" layoutY="175.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <Label layoutX="402.0" layoutY="421.0" prefHeight="21.0" prefWidth="25.0" text="B3" />
-      <Label layoutX="402.0" layoutY="389.0" prefHeight="21.0" prefWidth="25.0" text="B2" />
-      <Label layoutX="402.0" layoutY="354.0" prefHeight="21.0" prefWidth="25.0" text="B1" />
-      <Label layoutX="402.0" layoutY="320.0" prefHeight="21.0" prefWidth="25.0" text="B0" />
-      <Label layoutX="402.0" layoutY="575.0" prefHeight="21.0" prefWidth="25.0" text="S3" />
-      <Label layoutX="402.0" layoutY="546.0" prefHeight="21.0" prefWidth="25.0" text="S2" />
-      <Label layoutX="402.0" layoutY="516.0" prefHeight="21.0" prefWidth="25.0" text="S1" />
-      <Label layoutX="402.0" layoutY="478.0" prefHeight="21.0" prefWidth="25.0" text="S0" />
-      <Line endX="50.0" fill="#088314" layoutX="329.0" layoutY="168.0" startX="-96.0" stroke="#1d9429" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="578.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="549.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="518.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="482.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="358.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="323.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="226.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="197.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <JFXToggleButton fx:id="toggleButtonS1" layoutX="152.0" layoutY="496.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonS3" layoutX="152.0" layoutY="556.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonS2" layoutX="152.0" layoutY="527.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonS0" layoutX="152.0" layoutY="460.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <Line endX="87.0" layoutX="293.0" layoutY="204.0" startX="-60.0" stroke="#1d9429">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.0313725508749485" green="0.5137255191802979" blue="0.0784313753247261" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill></Line>
-      <Line endX="87.0" layoutX="293.0" layoutY="556.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="292.0" layoutY="525.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="292.0" layoutY="489.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="292.0" layoutY="267.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="292.0" layoutY="233.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="292.0" layoutY="399.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="292.0" layoutY="365.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="292.0" layoutY="330.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="293.0" layoutY="431.0" startX="-60.0" />
-      <Line endX="87.0" layoutX="293.0" layoutY="585.0" startX="-60.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="682.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="682.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="682.0" layoutY="190.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="682.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Line endX="216.0" layoutX="804.0" layoutY="257.0" startX="-107.0" />
-      <Line endX="246.0" layoutX="804.0" layoutY="226.0" startX="-107.0" />
-      <Line endX="282.0" layoutX="804.0" layoutY="197.0" startX="-107.0" />
-      <Line endX="112.5" endY="-207.5" layoutX="974.0" layoutY="405.0" startX="112.5" startY="-90.0" />
-      <Line endX="113.5" endY="-208.5" layoutX="937.0" layoutY="435.0" startX="113.5" startY="-120.0" />
-      <Polygon fill="DODGERBLUE" layoutX="258.0" layoutY="638.0" points="-50.0, 31.0, -28.5, 13.5, -50.0, -2.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="100.0" layoutX="283.0" layoutY="652.0" startX="-53.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="645.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Polygon fill="DODGERBLUE" layoutX="258.0" layoutY="679.0" points="-50.0, 31.0, -28.5, 13.5, -50.0, -2.0" stroke="BLACK" strokeType="INSIDE" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="14.0" layoutX="380.0" layoutY="687.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
-      <Line endX="100.0" layoutX="282.0" layoutY="693.0" startX="-53.0" />
-      <Line endX="100.0" layoutX="737.0" layoutY="430.0" startX="-53.0" />
-      <TextField fx:id="CarryOut" layoutX="838.0" layoutY="415.0" prefHeight="33.0" prefWidth="36.0" />
-      <Label layoutX="600.0" layoutY="418.0" prefHeight="21.0" prefWidth="71.0" text="CarryOut" />
-      <Label layoutX="402.0" layoutY="683.0" prefHeight="21.0" prefWidth="25.0" text="Cn" />
-      <Label layoutX="402.0" layoutY="642.0" prefHeight="21.0" prefWidth="25.0" text="M" />
-      <Rectangle fx:id="Rect0" arcHeight="5.0" arcWidth="5.0" fill="#e4dede" height="14.0" layoutX="1041.0" layoutY="375.0" stroke="WHITE" strokeType="INSIDE" width="71.0" />
-      <Rectangle fx:id="Rect6" arcHeight="5.0" arcWidth="5.0" fill="#e4dede" height="14.0" layoutX="1038.0" layoutY="539.0" stroke="WHITE" strokeType="INSIDE" width="71.0" />
-      <Rectangle fx:id="Rect3" arcHeight="5.0" arcWidth="5.0" fill="#e4dede" height="14.0" layoutX="1041.0" layoutY="455.0" stroke="WHITE" strokeType="INSIDE" width="71.0" />
-      <Rectangle fx:id="Rect1" arcHeight="5.0" arcWidth="5.0" fill="#e4dede" height="68.0" layoutX="1108.0" layoutY="387.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
-      <Rectangle fx:id="Rect5" arcHeight="5.0" arcWidth="5.0" fill="#e4dede" height="68.0" layoutX="1027.0" layoutY="472.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
-      <Rectangle fx:id="Rect4" arcHeight="5.0" arcWidth="5.0" fill="#e4dede" height="68.0" layoutX="1108.0" layoutY="472.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
-      <Rectangle fx:id="Rect2" arcHeight="5.0" arcWidth="5.0" fill="#e4dede" height="68.0" layoutX="1027.0" layoutY="387.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
-      <TextField fx:id="Result" layoutX="1013.0" layoutY="314.0" prefHeight="45.0" prefWidth="120.0" />
-      <Button fx:id="Play" layoutX="910.0" layoutY="726.0" mnemonicParsing="false" onAction="#Play" prefHeight="60.0" prefWidth="111.0" style="-fx-background-color: red;" text="PLAY" textFill="WHITE">
+      <Label layoutX="647.0" layoutY="246.0" prefHeight="24.0" prefWidth="36.0" text="F3" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="19.0" />
+      </font>
+         </Label>
+      <Label layoutX="647.0" layoutY="216.0" prefHeight="24.0" prefWidth="36.0" text="F2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="647.0" layoutY="187.0" prefHeight="24.0" prefWidth="36.0" text="F1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="647.0" layoutY="157.0" prefHeight="24.0" prefWidth="36.0" text="F0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="421.0" prefHeight="24.0" prefWidth="36.0" text="B3" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="389.0" prefHeight="24.0" prefWidth="36.0" text="B2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="354.0" prefHeight="24.0" prefWidth="36.0" text="B1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="320.0" prefHeight="24.0" prefWidth="36.0" text="B0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="575.0" prefHeight="24.0" prefWidth="36.0" text="S3" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="546.0" prefHeight="24.0" prefWidth="36.0" text="S2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="516.0" prefHeight="24.0" prefWidth="36.0" text="S1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="478.0" prefHeight="24.0" prefWidth="36.0" text="S0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Line fx:id="lineA0" endX="50.0" fill="RED" layoutX="329.0" layoutY="168.0" startX="-96.0" stroke="RED" strokeWidth="3.0" />
+      <Rectangle fx:id="RectA0" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="161.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectS3" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="578.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectS2" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="549.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectS1" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="518.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectS0" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="482.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectB3" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="424.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectB2" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="392.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectB1" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="358.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectB0" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="323.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectA3" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="259.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectA2" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="226.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectA1" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="197.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Line fx:id="lineA1" endX="87.0" fill="RED" layoutX="293.0" layoutY="204.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineS2" endX="87.0" layoutX="293.0" layoutY="556.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineS1" endX="87.0" layoutX="292.0" layoutY="525.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineS0" endX="87.0" layoutX="292.0" layoutY="489.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineA3" endX="87.0" layoutX="292.0" layoutY="267.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineA2" endX="87.0" fill="RED" layoutX="292.0" layoutY="233.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineB2" endX="87.0" layoutX="292.0" layoutY="399.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineB1" endX="87.0" layoutX="292.0" layoutY="365.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineB0" endX="87.0" layoutX="292.0" layoutY="330.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineB3" endX="87.0" layoutX="293.0" layoutY="431.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineS3" endX="87.0" layoutX="293.0" layoutY="585.0" startX="-60.0" stroke="RED" strokeWidth="3.0" />
+      <Rectangle fx:id="RectF3" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="682.0" layoutY="249.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectF2" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="682.0" layoutY="219.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectF1" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="682.0" layoutY="190.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Rectangle fx:id="RectF0" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="682.0" layoutY="161.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Line fx:id="lineF31" endX="216.0" layoutX="804.0" layoutY="257.0" startX="-107.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line21" endX="246.0" layoutX="804.0" layoutY="226.0" startX="-107.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line11" endX="282.0" layoutX="804.0" layoutY="197.0" startX="-107.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line12" endX="112.5" endY="-207.5" layoutX="974.0" layoutY="405.0" startX="112.5" startY="-90.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line22" endX="113.5" endY="-208.5" layoutX="937.0" layoutY="435.0" startX="113.5" startY="-120.0" stroke="RED" strokeWidth="3.0" />
+      <Polygon fx:id="TriM" fill="RED" layoutX="258.0" layoutY="638.0" points="-49.0, 30.0, -28.5, 13.5, -49.0, -3.0" stroke="#ff0d0d" strokeType="INSIDE" />
+      <Line fx:id="lineM" endX="100.0" layoutX="283.0" layoutY="652.0" startX="-53.5" stroke="RED" strokeWidth="3.0" />
+      <Rectangle fx:id="RectM" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="645.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Polygon fx:id="TriCn" fill="RED" layoutX="258.0" layoutY="679.0" points="-50.0, 31.0, -28.5, 13.5, -50.0, -2.0" stroke="#ff0d0d" strokeType="INSIDE" />
+      <Rectangle fx:id="RectCn" arcHeight="5.0" arcWidth="5.0" fill="RED" height="14.0" layoutX="380.0" layoutY="687.0" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" width="14.0" />
+      <Line fx:id="lineCn" endX="100.0" layoutX="282.0" layoutY="693.0" startX="-53.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="lineCarryOut" endX="100.0" layoutX="728.0" layoutY="551.0" startX="-53.0" stroke="RED" strokeWidth="3.0" />
+      <TextField fx:id="CarryOut" alignment="CENTER" layoutX="830.0" layoutY="533.0" prefHeight="33.0" prefWidth="36.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
+      <Label layoutX="567.0" layoutY="541.0" prefHeight="24.0" prefWidth="107.0" text="CarryOut" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="675.0" prefHeight="24.0" prefWidth="36.0" text="Cn" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="642.0" prefHeight="21.0" prefWidth="25.0" text="M" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="19.0" />
+      </font>
+   </Label>
+      <Rectangle fx:id="Rect0" arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="14.0" layoutX="1041.0" layoutY="375.0" stroke="WHITE" strokeType="INSIDE" width="71.0" />
+      <Rectangle fx:id="Rect6" arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="14.0" layoutX="1038.0" layoutY="539.0" stroke="WHITE" strokeType="INSIDE" width="71.0" />
+      <Rectangle fx:id="Rect3" arcHeight="5.0" arcWidth="5.0" fill="#eeeeee59" height="14.0" layoutX="1041.0" layoutY="455.0" stroke="WHITE" strokeType="INSIDE" width="71.0" />
+      <Rectangle fx:id="Rect1" arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="68.0" layoutX="1108.0" layoutY="387.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
+      <Rectangle fx:id="Rect5" arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="68.0" layoutX="1027.0" layoutY="472.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
+      <Rectangle fx:id="Rect4" arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="68.0" layoutX="1108.0" layoutY="472.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
+      <Rectangle fx:id="Rect2" arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="68.0" layoutX="1027.0" layoutY="387.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
+      <TextField fx:id="Result" alignment="CENTER" layoutX="1013.0" layoutY="314.0" prefHeight="45.0" prefWidth="120.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
+      <Button fx:id="Play" layoutX="839.0" layoutY="746.0" mnemonicParsing="false" onAction="#Play" prefHeight="63.0" prefWidth="140.0" style="-fx-background-color: #e80a11; -fx-Font-Size: 17px;" text="PLAY" textAlignment="CENTER" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imagePlay" fitHeight="38.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/run5.png" />
+                  <Image url="@images/play.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <MenuBar accessibleRole="MENU_ITEM" layoutX="1.0" layoutY="1.0" prefHeight="27.0" prefWidth="1404.0">
+      <MenuBar fx:id="menuBar" accessibleRole="BUTTON" layoutX="-7.0" layoutY="-5.0" prefHeight="33.0" prefWidth="1342.0" style="-fx-background-color: #478aff; -fx-font-size: 15px; -fx-font-color: white;">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Save">
 
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu fx:id="Exporter" mnemonicParsing="true" text="_Exporter">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+
+              <MenuItem fx:id="save" onAction="#save" text="Exporter en Excel" />
             </items>
+          </Menu>
+
+          <Menu mnemonicParsing="false" text="Quitter">
+             <items>
+                <MenuItem fx:id="quitter" onAction="#quitter" text="Quitter" />
+             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <Line endX="-100.0" endY="10.0" layoutX="1121.0" layoutY="357.0" startX="-100.0" />
-      <Line endX="-79.0" layoutX="1131.0" layoutY="367.0" startX="-79.0" startY="-8.0" />
-      <Line endX="-54.0" endY="-10.0" layoutX="1141.0" layoutY="377.0" startX="-54.0" startY="-20.0" />
-      <Line endX="-30.0" endY="-18.0" layoutX="1151.0" layoutY="387.0" startX="-30.0" startY="-28.0" />
-      <Button fx:id="Refresh" layoutX="1031.0" layoutY="726.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="60.0" prefWidth="128.0" style="-fx-background-color: red;" text="REFRESH" textFill="WHITE">
+      <Line fx:id="lineF33" endX="-100.0" endY="10.0" layoutX="1121.0" layoutY="357.0" startX="-100.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line23" endX="-79.0" layoutX="1131.0" layoutY="367.0" startX="-79.0" startY="-8.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line13" endX="-54.0" endY="-10.0" layoutX="1141.0" layoutY="377.0" startX="-54.0" startY="-20.0" stroke="RED" strokeWidth="3.0" />
+      <Line fx:id="line03" endX="-30.0" endY="-18.0" layoutX="1151.0" layoutY="387.0" startX="-30.0" startY="-28.0" stroke="RED" strokeWidth="3.0" />
+      <Button fx:id="Refresh" layoutX="995.0" layoutY="746.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="63.0" prefWidth="180.0" style="-fx-background-color: #b52052; -fx-Font-Size: 17px;" text="RESTAURER" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/rest3.png" />
+                  <Image url="@images/rel.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <JFXToggleNode layoutX="149.0" layoutY="313.0" prefHeight="138.0" prefWidth="83.0" style="-fx-background-color: pink;" />
-      <JFXToggleButton fx:id="toggleButtonB0" layoutX="149.0" layoutY="301.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonB1" layoutX="150.0" layoutY="336.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonB2" layoutX="152.0" layoutY="370.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonB3" layoutX="152.0" layoutY="402.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <JFXToggleButton fx:id="toggleButtonA0" layoutX="149.0" layoutY="139.0" prefHeight="14.0" prefWidth="81.0" text="0" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
-      <Label fx:id="Label0" layoutX="92.0" layoutY="637.0" text="0" textFill="WHITE" />
-      <Button fx:id="Button0" layoutX="173.0" layoutY="635.0" mnemonicParsing="false" onAction="#Button0" prefHeight="33.0" prefWidth="36.0" style="-fx-background-color: red;" text="0" textFill="WHITE" />
-      <Button fx:id="Button1" layoutX="172.0" layoutY="676.0" mnemonicParsing="false" onAction="#Button1" prefHeight="33.0" prefWidth="36.0" style="-fx-background-color: red;" text="0" textFill="WHITE" />
+      <JFXToggleNode fx:id="toggleNodeB" layoutX="149.0" layoutY="313.0" prefHeight="138.0" prefWidth="83.0" style="-fx-background-color: #478aff;" />
+      <JFXToggleButton fx:id="toggleButtonB0" layoutX="149.0" layoutY="301.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleButton fx:id="toggleButtonB1" layoutX="148.0" layoutY="336.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleButton fx:id="toggleButtonB2" layoutX="148.0" layoutY="366.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleButton fx:id="toggleButtonB3" layoutX="149.0" layoutY="396.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <Button fx:id="Button0" layoutX="173.0" layoutY="635.0" mnemonicParsing="false" onAction="#Button0" prefHeight="33.0" prefWidth="36.0" style="-fx-background-color: red; -fx-Font-Size:15px;" text="0" textFill="WHITE" />
+      <Button fx:id="Button1" layoutX="172.0" layoutY="676.0" mnemonicParsing="false" onAction="#Button1" prefHeight="33.0" prefWidth="36.0" style="-fx-background-color: red; -fx-Font-Size:15px;" text="0" textFill="WHITE" />
+      <Label fx:id="Title" contentDisplay="CENTER" graphicTextGap="5.0" layoutX="307.0" layoutY="50.0" prefHeight="45.0" prefWidth="714.0" text="SIMULATION D'UNE UNITE ARITHMETIQUE ET LOGIQUE" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+         <font>
+            <Font name="Junicode Bold" size="25.0" />
+         </font></Label>
+      <Label fx:id="Daty" layoutX="85.0" layoutY="778.0" prefHeight="45.0" prefWidth="290.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="MathJax_Typewriter-Regular" size="25.0" />
+         </font></Label>
+      <JFXToggleNode fx:id="ToggleNode" layoutX="150.0" layoutY="147.0" prefHeight="138.0" prefWidth="83.0" style="-fx-background-color: #478aff;" />
+      <JFXToggleButton fx:id="toggleButtonA0" layoutX="150.0" layoutY="138.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></JFXToggleButton>
+      <JFXToggleButton fx:id="toggleButtonA1" layoutX="148.0" layoutY="168.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleButton fx:id="toggleButtonA2" layoutX="149.0" layoutY="203.0" prefHeight="60.0" prefWidth="84.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></JFXToggleButton>
+      <JFXToggleButton fx:id="toggleButtonA3" layoutX="148.0" layoutY="236.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleNode fx:id="ToggleNodeS" layoutX="151.0" layoutY="468.0" prefHeight="138.0" prefWidth="83.0" style="-fx-background-color: #478aff;" />
+      <JFXToggleButton fx:id="toggleButtonS0" layoutX="151.0" layoutY="459.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleButton fx:id="toggleButtonS1" layoutX="151.0" layoutY="488.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleButton fx:id="toggleButtonS2" layoutX="150.0" layoutY="519.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <JFXToggleButton fx:id="toggleButtonS3" layoutX="151.0" layoutY="549.0" prefHeight="14.0" prefWidth="81.0" style=" -fx-Font-Size:15px;" text="0" textFill="WHITE" toggleColor="#f2eeee" toggleLineColor="#78eb65" unToggleColor="#f2eeee" unToggleLineColor="#dd0808" />
+      <Label fx:id="Ora" layoutX="402.0" layoutY="766.0" prefHeight="53.0" prefWidth="228.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Linux Biolinum Keyboard O" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="495.0" layoutY="389.0" prefHeight="24.0" prefWidth="107.0" text="74LS181" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
 
    </children>
 </AnchorPane>

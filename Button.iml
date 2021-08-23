@@ -12,5 +12,6 @@
     <orderEntry type="library" name="mysql-connector-java-8.0.25" level="project" />
     <orderEntry type="library" name="poi-ooxml-full-5.0.0" level="project" />
     <orderEntry type="library" name="poi-1.8.0-dev-20020919" level="project" />
+    <orderEntry type="library" name="poi-3.9" level="project" />
   </component>
 </module>
