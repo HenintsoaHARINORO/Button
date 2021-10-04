@@ -23,8 +23,9 @@ public class daty {
         String D = strDate.substring(8, 10);
         DateDuJour = DateDuJour + D + " ";
         String M = strDate.substring(4, 7);
+       // System.out.println(M);
         String mois[] = {"Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
-        String moisAnglais[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        String moisAnglais[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (int i = 0; i < moisAnglais.length; i++) {
             if (M.equals(moisAnglais[i])) {
                 DateDuJour = DateDuJour + mois[i] + " ";
@@ -58,7 +59,7 @@ public class daty {
         DateDuJour = DateDuJour + D + " ";
         String M = strDate.substring(4, 7);
         String mois[] = {"Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
-        String moisAnglais[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        String moisAnglais[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (int i = 0; i < moisAnglais.length; i++) {
             if (M.equals(moisAnglais[i])) {
                 DateDuJour = DateDuJour + mois[i] + " ";
@@ -91,7 +92,7 @@ public class daty {
         DateDuJour = DateDuJour + D + " ";
         String M = strDate.substring(4, 7);
         String mois[] = {"Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
-        String moisAnglais[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        String moisAnglais[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (int i = 0; i < moisAnglais.length; i++) {
             if (M.equals(moisAnglais[i])) {
                 DateDuJour = DateDuJour + mois[i] + " ";

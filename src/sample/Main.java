@@ -18,10 +18,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         parentWindow = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-
+        primaryStage.setResizable(true);
         primaryStage.setTitle("Simulation d'une Unite Arithmetique et Logique");
-        primaryStage.setScene(new Scene(root, 1300, 900));
-       primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setScene(new Scene(root, 1600, 1100));
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
     }
 

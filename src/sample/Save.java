@@ -40,7 +40,8 @@ public class   Save {
             rowhead.createCell((short) 5).setCellValue("M");
             rowhead.createCell((short) 6).setCellValue("Cn");
             rowhead.createCell((short) 7).setCellValue("Resultat");
-            rowhead.createCell((short) 8).setCellValue("Carryout");
+            rowhead.createCell((short) 8).setCellValue("Cn+4");
+            rowhead.createCell((short) 9).setCellValue("A=B");
 
             int index = 1;
 
@@ -56,6 +57,7 @@ public class   Save {
                 row.createCell((short) 6).setCellValue(rs.getString(7));
                 row.createCell((short) 7).setCellValue(rs.getString(8));
                 row.createCell((short) 8).setCellValue(rs.getString(9));
+                row.createCell((short) 9).setCellValue(rs.getString(10));
                 index++;
 
             }

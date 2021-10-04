@@ -53,6 +53,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.ResourceBundle;
+
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 
@@ -61,7 +62,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Polygon TriM;
-    @FXML private MenuItem aide;
+    @FXML
+    private MenuItem aide;
     @FXML
     private Polygon TriCn;
     @FXML
@@ -116,6 +118,11 @@ public class Controller implements Initializable {
 
     @FXML
     private Rectangle RectS2;
+    @FXML
+    private Line Comparateur;
+
+    @FXML
+    private TextField Compa;
 
     @FXML
     private Rectangle RectS1;
@@ -140,40 +147,40 @@ public class Controller implements Initializable {
     private Line lineCarryOut;
 
     @FXML
-    private  Line lineS3;
+    private Line lineS3;
     @FXML
-    private  Line lineF32;
+    private Line lineF32;
 
     @FXML
     private Line line01;
 
     @FXML
-    private   Line line02;
+    private Line line02;
     @FXML
-    private  Line lineF31;
+    private Line lineF31;
 
     @FXML
-    private   Line line21;
+    private Line line21;
 
     @FXML
-    private    Line line11;
+    private Line line11;
 
     @FXML
-    private  Line line12;
+    private Line line12;
 
     @FXML
-    private   Line line22;
+    private Line line22;
     @FXML
-    private  Line lineF33;
+    private Line lineF33;
 
     @FXML
-    private   Line line23;
+    private Line line23;
 
     @FXML
-    private   Line line13;
+    private Line line13;
 
     @FXML
-    private   Line line03;
+    private Line line03;
 
     @FXML
     private Label Label0;
@@ -189,7 +196,7 @@ public class Controller implements Initializable {
     @FXML
     private Rectangle RectA2;
     @FXML
-    private   Rectangle RectF0;
+    private Rectangle RectF0;
     @FXML
     private Line lineA3;
 
@@ -220,21 +227,21 @@ public class Controller implements Initializable {
     @FXML
     private Rectangle RectB0;
     @FXML
-    private  Rectangle RectF1;
+    private Rectangle RectF1;
     @FXML
-    private  Rectangle RectF3;
+    private Rectangle RectF3;
     @FXML
-    private  Rectangle RectF2;
-
+    private Rectangle RectF2;
 
 
     @FXML
     private Line line33;
 
-    @FXML   private  AnchorPane anchor;
+    @FXML
+    private AnchorPane anchor;
 
     @FXML
-    private  Line line00;
+    private Line line00;
 
     @FXML
     private Button btn;
@@ -250,8 +257,9 @@ public class Controller implements Initializable {
     private TextField Cn;
 
     @FXML
-    public  TextField CarryOut;
-    @FXML private Button Refresh;
+    public TextField CarryOut;
+    @FXML
+    private Button Refresh;
 
     @FXML
     private JFXToggleButton toggleButtonB1;
@@ -317,21 +325,23 @@ public class Controller implements Initializable {
         }
     }
 
-    @FXML Button Button0;
-    @FXML private void Button0(){
+    @FXML
+    Button Button0;
+
+    @FXML
+    private void Button0() {
         if (Button0.getText().equals("0")) {
             Button0.setText("1");
-            Button0.setStyle("-fx-background-color:green;");
+            Button0.setStyle("-fx-background-color:green;-fx-font-size:24px;");
             Button1.setDisable(true);
             TriM.setFill(Color.GREEN);
             TriM.setStroke(Color.GREEN);
             RectM.setFill(Color.GREEN);
             lineM.setStroke(Color.GREEN);
             RectM.setStroke(Color.GREEN);
-        }
-        else {
+        } else {
             Button0.setText("0");
-            Button0.setStyle("-fx-background-color:red;");
+            Button0.setStyle("-fx-background-color:red;-fx-font-size:24px;");
             Button1.setDisable(false);
             TriM.setFill(Color.RED);
             TriM.setStroke(Color.RED);
@@ -340,11 +350,15 @@ public class Controller implements Initializable {
             lineM.setStroke(Color.RED);
         }
     }
-    @FXML Button Button1;
-    @FXML private void Button1(){
+
+    @FXML
+    Button Button1;
+
+    @FXML
+    private void Button1() {
         if (Button1.getText().equals("0")) {
             Button1.setText("1");
-            Button1.setStyle("-fx-background-color:green;");
+            Button1.setStyle("-fx-background-color:green;-fx-font-size:24px;");
             Button1.setDisable(false);
             TriCn.setStroke(Color.GREEN);
             TriCn.setFill(Color.GREEN);
@@ -352,10 +366,9 @@ public class Controller implements Initializable {
             lineCn.setStroke(Color.GREEN);
             RectCn.setStroke(Color.GREEN);
 
-        }
-        else {
+        } else {
             Button1.setText("0");
-            Button1.setStyle("-fx-background-color:red;");
+            Button1.setStyle("-fx-background-color:red;-fx-font-size:24px;");
             Button1.setDisable(false);
             TriCn.setStroke(Color.RED);
             TriCn.setFill(Color.RED);
@@ -368,6 +381,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void Refresh() {
+        Comparateur.setStroke(Color.RED);
         lineCarryOut.setStroke(Color.RED);
         RectF3.setStroke(Color.RED);
         RectF3.setFill(Color.RED);
@@ -389,6 +403,7 @@ public class Controller implements Initializable {
         line01.setStroke(Color.RED);
         line02.setStroke(Color.RED);
         line03.setStroke(Color.RED);
+        Compa.setStyle("-fx-background-color:white");
         CarryOut.setStyle("-fx-background-color:white");
         TriM.setFill(Color.RED);
         TriM.setStroke(Color.RED);
@@ -414,11 +429,12 @@ public class Controller implements Initializable {
         toggleButtonS3.setSelected(false);
         Button0.setText("0");
         Button1.setText("0");
-        Button0.setStyle("-fx-background-color:red");
-        Button1.setStyle("-fx-background-color:red");
+        Button0.setStyle("-fx-background-color:red;-fx-font-size:24px");
+        Button1.setStyle("-fx-background-color:red;-fx-font-size:24px;");
         Button1.setDisable(false);
         CarryOut.setText(" ");
-        Result.setText( " ");
+        Compa.setText(" ");
+        Result.setText(" ");
         Rect0.setFill(Color.valueOf("#e4dede"));
         Rect2.setFill(Color.valueOf("#e4dede"));
         Rect3.setFill(Color.valueOf("#e4dede"));
@@ -428,7 +444,9 @@ public class Controller implements Initializable {
         Rect4.setFill(Color.valueOf("#e4dede"));
         Play.setStyle("-fx-background-color:red;");
     }
-    @FXML private void save(){
+
+    @FXML
+    private void save() {
         System.out.println("hello");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
@@ -452,34 +470,36 @@ public class Controller implements Initializable {
         System.out.println(SelectionS);
         String query =
                 "INSERT INTO ALU" +
-                        "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut)" +
+                        "(Daty,OperandeA,OperandeB,Selection,M,Cn,Resultat,CarryOut,Compa)" +
                         "VALUES" +
-                        "('" +dtf.format(now) + "','"+OperandA+ "','" +OperandB + "','" +SelectionS + "', '" +Button0.getText() + "','" +Button1.getText()+ "', '" +Result.getText() + "', '" +CarryOut.getText()+ "');\n";
+                        "('" + dtf.format(now) + "','" + OperandA + "','" + OperandB + "','" + SelectionS + "', '" + Button0.getText() + "','" + Button1.getText() + "', '" + Result.getText() + "', '" + CarryOut.getText() + "','" + Compa.getText() + "');\n";
         executeQuery(query);
         Save.Save1();
         JOptionPane jop = new JOptionPane();
-        jop.showMessageDialog(null,"Sauvegarde reussie","Information",JOptionPane.INFORMATION_MESSAGE);
+        jop.showMessageDialog(null, "Sauvegarde reussie", "Information", JOptionPane.INFORMATION_MESSAGE);
     }
-    @FXML private void aide(ActionEvent event) throws IOException {
+
+    @FXML
+    private void aide(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Aide.fxml"));
         Parent ReportManager = loader.load();
         Scene ReportManagerScene = new Scene(ReportManager);
 
-        Stage window = (Stage)anchor.getScene().getWindow();
+        Stage window = (Stage) anchor.getScene().getWindow();
 
         window.setScene(ReportManagerScene);
 
         window.show();
 
 
-
     }
+
     @FXML
     private void Play() {
         Play.setStyle("-fx-background-color:red;");
 
-      //imagePlay.setStyle("-fx-background-color:red;");
+        //imagePlay.setStyle("-fx-background-color:red;");
 //
 //        run.setFill(Color.GREEN);
         /*System.out.println("Button1");
@@ -513,48 +533,54 @@ public class Controller implements Initializable {
         System.out.println(SelectionS);
         int intSelectionS = Integer.parseInt(SelectionS, 2);
         System.out.println(intSelectionS);
-        int Cn=0;
-        if (Button1.isDisabled()){
+        int Cn = 0;
+        if (Button1.isDisabled()) {
             System.out.println("Nothing");
-        }else{
-            String C=Button1.getText();
-            Cn=Integer.parseInt(C,2);
+        } else {
+            String C = Button1.getText();
+            Cn = Integer.parseInt(C, 2);
             System.out.println(Cn);
 
         }
-        String Mn=Button0.getText();
-        int M1=Integer.parseInt(Mn,2);
+        String Mn = Button0.getText();
+        int M1 = Integer.parseInt(Mn, 2);
         System.out.println(M1);
-        String res11=ET(OperandA,OperandB);
-        String res16 =OU(OperandA,Complement(OperandB));
-        String res26 =OU(OperandA, OperandB);
-        String res3 = ET(OperandA,Complement(OperandB));
-        int A = Integer.parseInt(OperandA,2);
+        String res11 = ET(OperandA, OperandB);
+        String res16 = OU(OperandA, Complement(OperandB));
+        String res26 = OU(OperandA, OperandB);
+        String res3 = ET(OperandA, Complement(OperandB));
+        int A = Integer.parseInt(OperandA, 2);
         DateTimeFormatter dtf6 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now6 = LocalDateTime.now();
-        if((M1==1)  ) {
+        if ((M1 == 1)) {
             switch (intSelectionS) {
                 case 0:
                     System.out.println(Complement(OperandA));
-                    String res1=Complement(OperandA);
+                    String res1 = Complement(OperandA);
                     Result.setText(res1);
                     CarryOut.setText("0");
                     carry("0");
-                    System.out.println(Integer.parseInt(res1,2));
+                    System.out.println(Integer.parseInt(res1, 2));
                     affichage(res1);
+                    String r = Compare(intOperandA, intOperandB);
+                    Compa.setText(r);
+                    compa(r);
                     change(res1);
                     break;
                 case 1:
                     System.out.println(Complement(OU(OperandA, OperandB)));
                     //Result.setText(Complement(OU(OperandA, OperandB)));
                     String[] res90 = Test(Complement(OU(OperandA, OperandB)));
-                    System.out.println("Retenue "+res90[1]);
-                    System.out.println("Resultat"+res90[0]);
+                    System.out.println("Retenue " + res90[1]);
+                    System.out.println("Resultat" + res90[0]);
                     Result.setText(res90[0]);
                     affichage(res90[0]);
                     change(res90[0]);
                     CarryOut.setText(res90[1]);
                     carry(res90[1]);
+                    String r1 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r1);
+                    compa(r1);
 
                     break;
                 case 2:
@@ -562,63 +588,74 @@ public class Controller implements Initializable {
                     //System.out.println(res);
                     System.out.println(ET(res, OperandB));
                     String[] res91 = Test(ET(res, OperandB));
-                    System.out.println("Retenue "+res91[1]);
-                    System.out.println("Resultat"+res91[0]);
+                    System.out.println("Retenue " + res91[1]);
+                    System.out.println("Resultat" + res91[0]);
                     Result.setText(res91[0]);
                     affichage(res91[0]);
                     change(res91[0]);
                     CarryOut.setText(res91[1]);
                     carry(res91[1]);
-
+                    String r2 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r2);
+                    compa(r2);
 
                     //Result.setText(ET(res, OperandB));
                     break;
                 case 3:
                     System.out.println(0);
-                    String res45="0000";
+                    String res45 = "0000";
                     Result.setText(res45);
                     CarryOut.setText("0");
                     affichage("0");
                     change("0000");
                     carry("0");
-
+                    String r3 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r3);
+                    compa(r3);
                     break;
                 case 4:
                     System.out.println(Complement(ET(OperandA, OperandB)));
                     //Result.setText(Complement(ET(OperandA, OperandB)));
                     String[] res92 = Test(Complement(ET(OperandA, OperandB)));
-                    System.out.println("Retenue "+res92[1]);
-                    System.out.println("Resultat"+res92[0]);
+                    System.out.println("Retenue " + res92[1]);
+                    System.out.println("Resultat" + res92[0]);
                     Result.setText(res92[0]);
                     affichage(res92[0]);
                     change(res92[0]);
                     carry(res92[1]);
                     CarryOut.setText(res92[1]);
-
+                    String r4 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r4);
+                    compa(r4);
                     break;
                 case 5:
                     System.out.println(Complement(OperandB));
-                   // Result.setText(Complement(OperandB));
+                    // Result.setText(Complement(OperandB));
                     String[] res93 = Test(Complement(OperandB));
-                    System.out.println("Retenue "+res93[1]);
-                    System.out.println("Resultat"+res93[0]);
+                    System.out.println("Retenue " + res93[1]);
+                    System.out.println("Resultat" + res93[0]);
                     Result.setText(res93[0]);
                     affichage(res93[0]);
                     change(res93[0]);
                     carry(res93[1]);
                     CarryOut.setText(res93[1]);
-
+                    String r5 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r5);
+                    compa(r5);
                     break;
                 case 6:
                     System.out.println(XOR(OperandA, OperandB));
                     String[] res94 = Test(XOR(OperandA, OperandB));
-                    System.out.println("Retenue "+res94[1]);
-                    System.out.println("Resultat"+res94[0]);
+                    System.out.println("Retenue " + res94[1]);
+                    System.out.println("Resultat" + res94[0]);
                     Result.setText(res94[0]);
                     CarryOut.setText(res94[1]);
                     affichage(res94[0]);
                     change(res94[0]);
                     carry(res94[1]);
+                    String r6 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r6);
+                    compa(r6);
 
                     //Result.setText(XOR(OperandA, OperandB));
                     break;
@@ -626,40 +663,47 @@ public class Controller implements Initializable {
                     System.out.println(ET(OperandA, Complement(OperandB)));
                     //Result.setText(ET(OperandA, Complement(OperandB)));
                     String[] res95 = Test(ET(OperandA, Complement(OperandB)));
-                    System.out.println("Retenue "+res95[1]);
-                    System.out.println("Resultat"+res95[0]);
+                    System.out.println("Retenue " + res95[1]);
+                    System.out.println("Resultat" + res95[0]);
                     Result.setText(res95[0]);
                     CarryOut.setText(res95[1]);
                     affichage(res95[0]);
                     change(res95[0]);
                     carry(res95[1]);
+                    String r7 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r7);
+                    compa(r7);
 
                     break;
                 case 8:
                     System.out.println(OU(Complement(OperandA), OperandB));
                     //Result.setText(OU(Complement(OperandA), OperandB));
                     String[] res96 = Test(OU(Complement(OperandA), OperandB));
-                    System.out.println("Retenue "+res96[1]);
-                    System.out.println("Resultat"+res96[0]);
+                    System.out.println("Retenue " + res96[1]);
+                    System.out.println("Resultat" + res96[0]);
                     Result.setText(res96[0]);
                     affichage(res96[0]);
                     change(res96[0]);
                     CarryOut.setText(res96[1]);
                     carry(res96[1]);
-
+                    String r8 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r8);
+                    compa(r8);
                     break;
                 case 9:
                     System.out.println(Complement(XOR(OperandA, OperandB)));
                     //Result.setText(Complement(XOR(OperandA, OperandB)));
                     String[] res97 = Test(Complement(XOR(OperandA, OperandB)));
-                    System.out.println("Retenue "+res97[1]);
-                    System.out.println("Resultat"+res97[0]);
+                    System.out.println("Retenue " + res97[1]);
+                    System.out.println("Resultat" + res97[0]);
                     Result.setText(res97[0]);
                     affichage(res97[0]);
                     change(res97[0]);
                     CarryOut.setText(res97[1]);
                     carry(res97[1]);
-
+                    String r9 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r9);
+                    compa(r9);
                     break;
                 case 10:
                     System.out.println(OperandB);
@@ -668,16 +712,22 @@ public class Controller implements Initializable {
                     affichage(OperandB);
                     change(OperandB);
                     carry("0");
+                    String r10 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r10);
+                    compa(r10);
 
                     break;
                 case 11:
                     System.out.println(ET(OperandA, OperandB));
-                    String res0=ET(OperandA, OperandB);
+                    String res0 = ET(OperandA, OperandB);
                     Result.setText(ET(OperandA, OperandB));
                     CarryOut.setText("0");
                     carry("0");
                     affichage(res0);
                     change(res0);
+                    String r11 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r11);
+                    compa(r11);
 
                     break;
                 case 12:
@@ -687,26 +737,35 @@ public class Controller implements Initializable {
                     affichage("0001");
                     change("0001");
                     carry("0");
+                    String r12 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r12);
+                    compa(r12);
 
                     break;
                 case 13:
-                    String re1=OU(OperandA, Complement(OperandB));
+                    String re1 = OU(OperandA, Complement(OperandB));
                     System.out.println(re1);
                     Result.setText(re1);
                     change(re1);
                     CarryOut.setText("0");
                     carry("0");
                     affichage(re1);
+                    String r13 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r13);
+                    compa(r13);
 
                     break;
                 case 14:
-                    String re2=OU(OperandA, OperandB);
+                    String re2 = OU(OperandA, OperandB);
                     System.out.println(re2);
                     Result.setText(re2);
                     affichage(re2);
                     change(re2);
                     CarryOut.setText("0");
                     carry("0");
+                    String r14 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r14);
+                    compa(r14);
 
                     break;
                 case 15:
@@ -716,81 +775,98 @@ public class Controller implements Initializable {
                     change(OperandA);
                     CarryOut.setText("0");
                     carry("0");
-
+                    String r15 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r15);
+                    compa(r15);
                     break;
 
 
             }
         }
-        if((M1==0) && (Cn==1)){
+        if ((M1 == 0) && (Cn == 1)) {
             switch (intSelectionS) {
                 case 0:
-                    String res31 = Integer.toBinaryString(A+1);
+                    String res31 = Integer.toBinaryString(A + 1);
                     System.out.println(res31);
                     String[] res96 = Test(res31);
-                    System.out.println("Retenue "+res96[1]);
-                    System.out.println("Resultat"+res96[0]);
+                    System.out.println("Retenue " + res96[1]);
+                    System.out.println("Resultat" + res96[0]);
                     Result.setText(res96[0]);
                     affichage(res96[0]);
                     change(res96[0]);
                     CarryOut.setText(res96[1]);
                     carry(res96[1]);
+                    String r15 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r15);
+                    compa(r15);
 
                     //Result.setText(res31);
                     break;
                 case 1:
-                    int res32 = Integer.parseInt(res26,2) +1;
+                    int res32 = Integer.parseInt(res26, 2) + 1;
                     String res33 = Integer.toBinaryString(res32);
                     System.out.println(res33);
                     //Result.setText(res33);
                     String[] res97 = Test(res33);
-                    System.out.println("Retenue "+res97[1]);
-                    System.out.println("Resultat"+res97[0]);
+                    System.out.println("Retenue " + res97[1]);
+                    System.out.println("Resultat" + res97[0]);
                     Result.setText(res97[0]);
                     affichage(res97[0]);
                     change(res97[0]);
                     CarryOut.setText(res97[1]);
                     carry(res97[1]);
+                    String r1 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r1);
+                    compa(r1);
 
                     break;
                 case 2:
-                    int res34 = Integer.parseInt(res16,2) +1;
+                    int res34 = Integer.parseInt(res16, 2) + 1;
                     String res35 = Integer.toBinaryString(res34);
                     System.out.println(res35);
                     String[] res78 = Test(res35);
-                    System.out.println("Retenue "+res78[1]);
-                    System.out.println("Resultat"+res78[0]);
+                    System.out.println("Retenue " + res78[1]);
+                    System.out.println("Resultat" + res78[0]);
                     Result.setText(res78[0]);
                     affichage(res78[0]);
                     change(res78[0]);
                     CarryOut.setText(res78[1]);
                     carry(res78[1]);
+                    String r2 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r2);
+                    compa(r2);
 
                     //Result.setText(res35);
                     break;
                 case 3:
-                    String res22 ="0";
+                    String res22 = "0";
                     System.out.println(res22);
                     affichage(res22);
                     Result.setText("0000");
                     change("0000");
                     CarryOut.setText("0");
                     carry("0");
+                    String r3 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r3);
+                    compa(r3);
 
                     break;
                 case 4:
-                    String res= ADD(OperandA,ET(OperandA,Complement(OperandB)));
-                    int res36 = Integer.parseInt(res,2)+1;
+                    String res = ADD(OperandA, ET(OperandA, Complement(OperandB)));
+                    int res36 = Integer.parseInt(res, 2) + 1;
                     String res37 = Integer.toBinaryString(res36);
                     System.out.println(res37);
                     String[] res90 = Test(res37);
-                    System.out.println("Retenue"+res90[1]);
-                    System.out.println("resultat"+res90[0]);
+                    System.out.println("Retenue" + res90[1]);
+                    System.out.println("resultat" + res90[0]);
                     Result.setText(res90[0]);
                     affichage(res90[0]);
                     change(res90[0]);
                     CarryOut.setText(res90[1]);
                     carry(res90[1]);
+                    String r4 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r4);
+                    compa(r4);
 
                     /*String res38 =Res(res37);
                     String Retenue6 = CarryOut(res37);
@@ -800,20 +876,23 @@ public class Controller implements Initializable {
                     //CarryOut.setText(Retenue6);
                     break;
                 case 5:
-                    String res2 = OU(OperandA,OperandB);
+                    String res2 = OU(OperandA, OperandB);
                     //String res3 = ET(operandA,Complement(operandB));
-                    String res4 = ADD(res2,res3);
-                    int res52 = Integer.parseInt(res4,2)+1;
+                    String res4 = ADD(res2, res3);
+                    int res52 = Integer.parseInt(res4, 2) + 1;
                     String res39 = Integer.toBinaryString(res52);
                     System.out.println(res39);
                     String[] res77 = Test(res39);
-                    System.out.println("Retenue "+res77[1]);
-                    System.out.println("Resultat"+res77[0]);
+                    System.out.println("Retenue " + res77[1]);
+                    System.out.println("Resultat" + res77[0]);
                     Result.setText(res77[0]);
                     CarryOut.setText(res77[1]);
                     affichage(res77[0]);
                     change(res77[0]);
                     carry(res77[1]);
+                    String r5 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r5);
+                    compa(r5);
 
                     /*String res5 = Res(res39);
                     String REtenue1 = CarryOut(res39);
@@ -824,134 +903,160 @@ public class Controller implements Initializable {
 
                     break;
                 case 6:
-                    String res7 =subtract1(OperandA ,OperandB);
-                    System.out.println(res7);
+                    String res7 = Subtract(intOperandA, intOperandB);
+                    System.out.println("REs = " + res7);
                     String[] res76 = Test(res7);
-                    System.out.println("Retenue "+res76[1]);
-                    System.out.println("Resultat"+res76[0]);
+                    System.out.println("Retenue " + res76[1]);
+                    System.out.println("Resultat" + res76[0]);
                     Result.setText(res76[0]);
                     affichage(res76[0]);
                     CarryOut.setText(res76[1]);
                     change(res76[0]);
                     carry(res76[1]);
-
+                    String r6 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r6);
+                    compa(r6);
                     //Result.setText(res8);
                     break;
                 case 7:
-                    String res9 = ET(OperandA,Complement(OperandB));
+                    String res9 = ET(OperandA, Complement(OperandB));
                     System.out.println(res9);
                     String[] res75 = Test(res9);
-                    System.out.println("Retenue "+res75[1]);
-                    System.out.println("Resultat"+res75[0]);
+                    System.out.println("Retenue " + res75[1]);
+                    System.out.println("Resultat" + res75[0]);
                     Result.setText(res75[0]);
                     CarryOut.setText(res75[1]);
                     affichage(res75[0]);
                     change(res75[0]);
                     carry(res75[1]);
+                    String r7 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r7);
+                    compa(r7);
 
                     //Result.setText(res9);
                     break;
                 case 8:
-                    String res12 = add(OperandA,res11);
-                    int res40= Integer.parseInt(res12,2)+1;
+                    String res12 = add(OperandA, res11);
+                    int res40 = Integer.parseInt(res12, 2) + 1;
                     String res41 = Integer.toBinaryString(res40);
                     System.out.println(res41);
                     String[] res74 = Test(res41);
-                    System.out.println("Retenue "+res74[1]);
-                    System.out.println("Resultat"+res74[0]);
+                    System.out.println("Retenue " + res74[1]);
+                    System.out.println("Resultat" + res74[0]);
                     Result.setText(res74[0]);
                     CarryOut.setText(res74[1]);
                     affichage(res74[0]);
                     change(res74[0]);
                     carry(res74[1]);
+                    String r8 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r8);
+                    compa(r8);
 
                     break;
                 case 9:
-                    String res14 = add(OperandA,OperandB);
-                    int res42 = Integer.parseInt(res14,2)+1;
+                    String res14 = add(OperandA, OperandB);
+                    int res42 = Integer.parseInt(res14, 2) + 1;
                     String res43 = Integer.toBinaryString(res42);
                     System.out.println(res43);
                     String[] res73 = Test(res43);
-                    System.out.println("Retenue "+res73[1]);
-                    System.out.println("Resultat"+res73[0]);
+                    System.out.println("Retenue " + res73[1]);
+                    System.out.println("Resultat" + res73[0]);
                     Result.setText(res73[0]);
                     CarryOut.setText(res73[1]);
                     affichage(res73[0]);
                     change(res73[0]);
                     carry(res73[1]);
+                    String r9 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r9);
+                    compa(r9);
 
                     break;
                 case 10:
-                    String res17 = add(res16,res11);
-                    int res44 = Integer.parseInt(res17,2)+1;
+                    String res17 = add(res16, res11);
+                    int res44 = Integer.parseInt(res17, 2) + 1;
                     String res45 = Integer.toBinaryString(res44);
                     System.out.println(res45);
                     String[] res72 = Test(res45);
-                    System.out.println("Retenue "+res72[1]);
-                    System.out.println("Resultat"+res72[0]);
+                    System.out.println("Retenue " + res72[1]);
+                    System.out.println("Resultat" + res72[0]);
                     Result.setText(res72[0]);
                     affichage(res72[0]);
                     change(res72[0]);
                     CarryOut.setText(res72[1]);
                     carry(res72[1]);
+                    String r10 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r10);
+                    compa(r10);
 
                     break;
                 case 11:
                     System.out.println(res11);
                     String[] res71 = Test(res11);
-                    System.out.println("Retenue "+res71[1]);
-                    System.out.println("Resultat"+res71[0]);
+                    System.out.println("Retenue " + res71[1]);
+                    System.out.println("Resultat" + res71[0]);
                     Result.setText(res71[0]);
                     CarryOut.setText(res71[1]);
                     affichage(res71[0]);
                     change(res71[0]);
                     carry(res71[1]);
+                    String r11 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r11);
+                    compa(r11);
 
                     //Result.setText(res11);
                     break;
                 case 12:
-                    String res24 = ADD(OperandA,OperandA);
-                    int res46 = Integer.parseInt(res24,2)+1;
+                    String res24 = ADD(OperandA, OperandA);
+                    int res46 = Integer.parseInt(res24, 2) + 1;
                     String res47 = Integer.toBinaryString(res46);
                     System.out.println(res47);
                     String[] res70 = Test(res47);
-                    System.out.println("Retenue "+res70[1]);
-                    System.out.println("Resultat"+res70[0]);
+                    System.out.println("Retenue " + res70[1]);
+                    System.out.println("Resultat" + res70[0]);
                     Result.setText(res70[0]);
                     CarryOut.setText(res70[1]);
                     affichage(res70[0]);
                     change(res70[0]);
                     carry(res70[1]);
+                    String r12 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r12);
+                    compa(r12);
 
                     //Result.setText(res47);
                     break;
                 case 13:
-                    String res25 = ADD(res26,OperandA);
-                    int res48 = Integer.parseInt(res25,2)+1;
+                    String res25 = ADD(res26, OperandA);
+                    int res48 = Integer.parseInt(res25, 2) + 1;
                     String res49 = Integer.toBinaryString(res48);
                     System.out.println(res49);
                     String[] res69 = Test(res49);
-                    System.out.println("Retenue "+res69[1]);
-                    System.out.println("Resultat"+res69[0]);
+                    System.out.println("Retenue " + res69[1]);
+                    System.out.println("Resultat" + res69[0]);
                     Result.setText(res69[0]);
                     CarryOut.setText(res69[1]);
                     change(res69[0]);
                     affichage(res69[0]);
                     carry(res69[1]);
+                    String r13 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r13);
+                    compa(r13);
                     break;
                 case 14:
-                    String res27 = ADD(res16,OperandA);
-                    int res50 = Integer.parseInt(res27,2)+1;
+                    String res27 = ADD(res16, OperandA);
+                    int res50 = Integer.parseInt(res27, 2) + 1;
                     String res51 = Integer.toBinaryString(res50);
                     System.out.println(res51);
                     String[] res68 = Test(res51);
-                    System.out.println("Retenue "+res68[1]);
-                    System.out.println("Resultat"+res68[0]);
+                    System.out.println("Retenue " + res68[1]);
+                    System.out.println("Resultat" + res68[0]);
                     Result.setText(res68[0]);
                     CarryOut.setText(res68[1]);
                     change(res68[0]);
                     affichage(res68[0]);
                     carry(res68[1]);
+                    String r14 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r14);
+                    compa(r14);
                     break;
                 case 15:
                     System.out.println(OperandA);
@@ -960,11 +1065,14 @@ public class Controller implements Initializable {
                     affichage(OperandA);
                     change(OperandA);
                     carry("0");
+                    String r16 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r16);
+                    compa(r16);
                     break;
 
             }
         }
-        if((M1==0) && (Cn==0)){
+        if ((M1 == 0) && (Cn == 0)) {
             switch (intSelectionS) {
                 case 0:
                     System.out.println(OperandA);
@@ -974,17 +1082,23 @@ public class Controller implements Initializable {
                     change(OperandA);
                     carry("0");
                     affichage(OperandA);
+                    String r1 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r1);
+                    compa(r1);
                     break;
                 case 1:
                     System.out.println(res26);
                     String[] res96 = Test(res26);
-                    System.out.println("Retenue "+res96[1]);
-                    System.out.println("Resultat"+res96[0]);
+                    System.out.println("Retenue " + res96[1]);
+                    System.out.println("Resultat" + res96[0]);
                     Result.setText(res96[0]);
                     CarryOut.setText(res96[1]);
                     affichage(res96[0]);
                     change(res96[0]);
                     carry(res96[1]);
+                    String r2 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r2);
+                    compa(r2);
                     //Result.setText(res26);
                     break;
                 case 2:
@@ -992,201 +1106,259 @@ public class Controller implements Initializable {
                     //System.out.println(res);
                     System.out.println(res16);
                     String[] res95 = Test(res16);
-                    System.out.println("Retenue "+res95[1]);
-                    System.out.println("Resultat"+res95[0]);
+                    System.out.println("Retenue " + res95[1]);
+                    System.out.println("Resultat" + res95[0]);
                     Result.setText(res95[0]);
                     CarryOut.setText(res95[1]);
                     affichage(res95[0]);
                     change(res95[0]);
                     carry(res95[1]);
+                    String r3 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r3);
+                    compa(r3);
                     //Result.setText(res16);
                     break;
                 case 3:
                     System.out.println("-1");
                     Result.setText("1111");
                     affichage("1111");
-                    CarryOut.setText("0");
+                    CarryOut.setText("1");
                     change("1111");
-                    carry("0");
+                    carry("1");
+                    String r4 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r4);
+                    compa(r4);
                     break;
                 case 4:
-                    String res= ADD(OperandA,ET(OperandA,Complement(OperandB)));
+                    String res = ADD(OperandA, ET(OperandA, Complement(OperandB)));
                     String[] res94 = Test(res);
-                    System.out.println("Retenue "+res94[1]);
-                    System.out.println("Resultat"+res94[0]);
+                    System.out.println("Retenue " + res94[1]);
+                    System.out.println("Resultat" + res94[0]);
                     Result.setText(res94[0]);
                     CarryOut.setText(res94[1]);
                     change(res94[0]);
                     affichage(res94[0]);
                     carry(res94[1]);
+                    String r5 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r5);
+                    compa(r5);
                     break;
                 case 5:
-                    String res2 = OU(OperandA,OperandB);
-                    String res4 = ADD(res2,res3);
+                    String res2 = OU(OperandA, OperandB);
+                    String res4 = ADD(res2, res3);
                     String[] res93 = Test(res4);
-                    System.out.println("Retenue "+res93[1]);
-                    System.out.println("Resultat"+res93[0]);
+                    System.out.println("Retenue " + res93[1]);
+                    System.out.println("Resultat" + res93[0]);
                     Result.setText(res93[0]);
                     CarryOut.setText(res93[1]);
                     change(res93[0]);
                     affichage(res93[0]);
                     carry(res93[1]);
+                    String r6 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r6);
+                    compa(r6);
                     break;
                 case 6:
-                    String res6 =subtract(OperandA ,OperandB);
-                    System.out.println(res6);
+                    String res6 = Subtract(intOperandA, intOperandB);
+                    int res344 = Integer.parseInt(res6, 2);
+                    String res66 = Subtract(res344, 1);
+                    System.out.println("Res = " + res66);
                     //Result.setText(res6);
-                    String[] res92 = Test(res6);
-                    System.out.println("Retenue "+res92[1]);
-                    System.out.println("Resultat"+res92[0]);
+                    String[] res92 = Test(res66);
+                    System.out.println("Retenue " + res92[1]);
+                    System.out.println("Resultat" + res92[0]);
                     Result.setText(res92[0]);
                     CarryOut.setText(res92[1]);
                     change(res92[0]);
                     affichage(res92[0]);
                     carry(res92[1]);
+                    String r7 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r7);
+                    compa(r7);
                     break;
                 case 7:
-                    String res9 = ET(OperandA,Complement(OperandB));
-                    int res10 = Integer.parseInt(res9,2) -1;
-                    String res34 = Integer.toBinaryString(res10);
-                    System.out.println(res34);
-                    String[] res91 = Test(res34);
-                    System.out.println("Retenue "+res91[1]);
-                    System.out.println("Resultat"+res91[0]);
+                    String res9 = ET(OperandA, Complement(OperandB));
+                    int res10 = Integer.parseInt(res9, 2);
+                    String res1111 = Subtract(res10, 1);
+
+                    System.out.println(res1111);
+                    String[] res91 = Test(res1111);
+                    System.out.println("Retenue " + res91[1]);
+                    System.out.println("Resultat" + res91[0]);
                     Result.setText(res91[0]);
                     CarryOut.setText(res91[1]);
                     change(res91[0]);
                     affichage(res91[0]);
                     carry(res91[1]);
+                    String r8 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r8);
+                    compa(r8);
                     break;
                 case 8:
-                    String res12 = add(OperandA,res11);
+                    String res12 = add(OperandA, res11);
                     System.out.println(res12);
                     String[] res90 = Test(res12);
-                    System.out.println("Retenue "+res90[1]);
-                    System.out.println("Resultat"+res90[0]);
+                    System.out.println("Retenue " + res90[1]);
+                    System.out.println("Resultat" + res90[0]);
                     Result.setText(res90[0]);
                     CarryOut.setText(res90[1]);
                     change(res90[0]);
                     affichage(res90[0]);
                     carry(res90[1]);
+                    String r9 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r9);
+                    compa(r9);
                     break;
                 case 9:
-                    String res14 = add(OperandA,OperandB);
+                    String res14 = add(OperandA, OperandB);
                     String[] res89 = Test(res14);
-                    System.out.println("Retenue "+res89[1]);
-                    System.out.println("Resultat"+res89[0]);
+                    System.out.println("Retenue " + res89[1]);
+                    System.out.println("Resultat" + res89[0]);
                     Result.setText(res89[0]);
                     CarryOut.setText(res89[1]);
                     affichage(res89[0]);
                     change(res89[0]);
                     carry(res89[1]);
+                    String r10 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r10);
+                    compa(r10);
                     break;
                 case 10:
-                    String res17 = add(res16,res11);
+                    String res17 = add(res16, res11);
                     System.out.println(res17);
                     String[] res88 = Test(res17);
-                    System.out.println("Retenue "+res88[1]);
-                    System.out.println("Resultat"+res88[0]);
+                    System.out.println("Retenue " + res88[1]);
+                    System.out.println("Resultat" + res88[0]);
                     Result.setText(res88[0]);
                     CarryOut.setText(res88[1]);
                     change(res88[0]);
                     affichage(res88[0]);
                     carry(res88[1]);
+                    String r11 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r11);
+                    compa(r11);
                     break;
                 case 11:
-                    int res19 = Integer.parseInt(res11,2);
-                    int res20 = res19 - 1;
-                    String res21 = Integer.toBinaryString(res20);
+                    int res19 = Integer.parseInt(res11, 2);
+
+                    String res21 = Subtract(res19, 1);
                     System.out.println(res21);
                     String[] res87 = Test(res21);
-                    System.out.println("Retenue "+res87[1]);
-                    System.out.println("Resultat"+res87[0]);
+                    System.out.println("Retenue " + res87[1]);
+                    System.out.println("Resultat" + res87[0]);
                     Result.setText(res87[0]);
                     CarryOut.setText(res87[1]);
                     change(res87[0]);
                     affichage(res87[0]);
                     carry(res87[1]);
+                    String r12 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r12);
+                    compa(r12);
                     break;
                 case 12:
-                    int res22 = A <<1;
+                    int res22 = A << 1;
                     String res23 = Integer.toBinaryString(res22);
-                    String res24 = ADD(OperandA,res23);
+                    String res24 = ADD(OperandA, res23);
                     System.out.println(res24);
                     String[] res86 = Test(res24);
-                    System.out.println("Retenue "+res86[1]);
-                    System.out.println("Resultat"+res86[0]);
+                    System.out.println("Retenue " + res86[1]);
+                    System.out.println("Resultat" + res86[0]);
                     Result.setText(res86[0]);
                     CarryOut.setText(res86[1]);
                     affichage(res86[0]);
                     change(res86[0]);
                     carry(res86[1]);
+                    String r13 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r13);
+                    compa(r13);
                     break;
                 case 13:
-                    String res25 = ADD(res26,OperandA);
+                    String res25 = ADD(res26, OperandA);
                     System.out.println(res25);
                     String[] res85 = Test(res25);
-                    System.out.println("Retenue "+res85[1]);
-                    System.out.println("Resultat"+res85[0]);
+                    System.out.println("Retenue " + res85[1]);
+                    System.out.println("Resultat" + res85[0]);
                     Result.setText(res85[0]);
                     CarryOut.setText(res85[1]);
                     affichage(res85[0]);
                     change(res85[0]);
                     carry(res85[1]);
+                    String r14 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r14);
+                    compa(r14);
                     break;
                 case 14:
-                    String res27 = ADD(res16,OperandA);
+                    String res27 = ADD(res16, OperandA);
                     System.out.println(res27);
                     String[] res84 = Test(res27);
-                    System.out.println("Retenue "+res84[1]);
-                    System.out.println("Resultat"+res84[0]);
+                    System.out.println("Retenue " + res84[1]);
+                    System.out.println("Resultat" + res84[0]);
                     Result.setText(res84[0]);
                     CarryOut.setText(res84[1]);
                     affichage(res84[0]);
                     change(res84[0]);
                     carry(res84[1]);
+                    String r15 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r15);
+                    compa(r15);
                     break;
                 case 15:
-                    int res28 =A -1 ;
-                    String res29 = Integer.toBinaryString(res28);
+
+                    String res29 = Subtract(A, 1);
                     System.out.println(res29);
                     String[] res83 = Test(res29);
-                    System.out.println("Retenue "+res83[1]);
-                    System.out.println("Resultat"+res83[0]);
+                    System.out.println("Retenue " + res83[1]);
+                    System.out.println("Resultat" + res83[0]);
                     Result.setText(res83[0]);
                     CarryOut.setText(res83[1]);
                     affichage(res83[0]);
                     change(res83[0]);
                     carry(res83[1]);
+                    String r16 = Compare(intOperandA, intOperandB);
+                    Compa.setText(r16);
+                    compa(r16);
                     break;
 
             }
         }
         Result.setDisable(true);
     }
-        /*if (b1 != 0 && b1 !=1){
-            A0.setStyle("-fx-control-inner-background:red");
-        }
-        else {
-            A0.setStyle("-fx-control-inner-background:green");
-            int b3 = b1+b2;
-            String text3 = b3+"";
-            F0.setEditable(false);
-            F0.setText(text3);
-        }*/
-    public void carry(String res){
-        if (res =="0"){
-            lineCarryOut.setStroke(Color.RED);
-            CarryOut.setStyle("-fx-background-color:red;-fx-font-size:15px;");
 
-        }else {
+    /*if (b1 != 0 && b1 !=1){
+        A0.setStyle("-fx-control-inner-background:red");
+    }
+    else {
+        A0.setStyle("-fx-control-inner-background:green");
+        int b3 = b1+b2;
+        String text3 = b3+"";
+        F0.setEditable(false);
+        F0.setText(text3);
+    }*/
+    public void carry(String res) {
+        if (res == "0") {
+            lineCarryOut.setStroke(Color.RED);
+            CarryOut.setStyle("-fx-background-color:red;-fx-font-size:24px;");
+
+        } else {
             lineCarryOut.setStroke(Color.GREEN);
-            CarryOut.setStyle("-fx-background-color:green;-fx-font-size:15px;");
+            CarryOut.setStyle("-fx-background-color:green;-fx-font-size:24px;");
         }
     }
-    public  void change(String res){
-        int res1=Integer.parseInt(res,2);
-        switch (res1){
+
+    public void compa(String res) {
+        if (res.equals("0")) {
+            Comparateur.setStroke(Color.RED);
+            Compa.setStyle("-fx-background-color:red;-fx-font-size:24px;");
+
+        } else {
+            Comparateur.setStroke(Color.GREEN);
+            Compa.setStyle("-fx-background-color:green;-fx-font-size:24px;");
+        }
+    }
+
+    public void change(String res) {
+        int res1 = Integer.parseInt(res, 2);
+        switch (res1) {
             case 0:
                 RectF3.setStroke(Color.RED);
                 RectF3.setFill(Color.RED);
@@ -1639,368 +1811,370 @@ public class Controller implements Initializable {
 
         }*/
     }
-        public static String ADD(String a,String b){
-            int a1 =Integer.parseInt(a,2);
-            int b1=Integer.parseInt(b,2);
-            int c = a1+b1;
-            String res =Integer.toBinaryString(c);
-            return res;
-        }
+
+    public static String ADD(String a, String b) {
+        int a1 = Integer.parseInt(a, 2);
+        int b1 = Integer.parseInt(b, 2);
+        int c = a1 + b1;
+        String res = Integer.toBinaryString(c);
+        return res;
+    }
+
     public static String subtract(String a, String b) {
         int a1 = Integer.parseInt(a, 2);
         int b1 = Integer.parseInt(b, 2);
-        Long sum =(long) a1+(~b1+1);
-        String res= Long.toBinaryString(sum);
-        if(res.length()>4){
-            String res1 = res.substring(res.length() -4);
+        Long sum = (long) a1 + (~b1 + 1);
+        String res = Long.toBinaryString(sum);
+        if (res.length() > 4) {
+            String res1 = res.substring(res.length() - 4);
             return res1;
-        }else {
+        } else {
             return res;
         }
 
     }
+
     public static String subtract1(String a, String b) {
         int a1 = Integer.parseInt(a, 2);
         int b1 = Integer.parseInt(b, 2);
-        Long sum =(long) a1+(~b1+1)-1;
-        String res= Long.toBinaryString(sum);
-        if(res.length()>4){
-            String res1 = res.substring(res.length() -4);
+        Long sum = (long) a1 + (~b1 + 1) - 1;
+        String res = Long.toBinaryString(sum);
+        if (res.length() > 4) {
+            String res1 = res.substring(res.length() - 4);
             return res1;
-        }else {
+        } else {
             return res;
         }
 
     }
-    public static String Res(String a){
-        String res5=" ";
-        if (a.length()>4) {
-            res5 = a.substring(1,5);
+
+    public static String Subtract(int a, int b) {
+        int res;
+        int sub = a - b; //soustraction decimale
+        String res1 = " ";
+        if (sub > 0) {
+            res = sub;
+            res1 = Integer.toBinaryString(res);
+            return res1;
+        } else {
+            res = -sub;
+            int sum = (~res + 1); //Complementation a 2
+            String re = Integer.toBinaryString(sum);
+            if (re.length() > 4) {
+                res1 = re.substring(re.length() - 5);
+                return res1;
+            } else {
+                return re;
+            }
         }
-        return  res5;
     }
 
-    public static String CarryOut(String a){
-        String b =" ";
-        if (a.length()>4) {
-            b = a.substring(0,1);
+    public static String Res(String a) {
+        String res5 = " ";
+        if (a.length() > 4) {
+            res5 = a.substring(1, 5);
+        }
+        return res5;
+    }
+
+    public static String CarryOut(String a) {
+        String b = " ";
+        if (a.length() > 4) {
+            b = a.substring(0, 1);
         }
 
-        return  b;
+        return b;
     }
-    public static String[] Test(String a){
-            String result[] = new String[2];
 
-            if (a.length()>4){
-                result[0]= a.substring(1,5);
-                result[1]= a.substring(0,1);
-            }
-            else if (a.length()==3){
-                result[0]="0"+a;
-                result[1]= "0";
-            }
-            else if (a.length()==2){
-                result[0]="00"+a;
-                result[1]= "0";
-            }
-            else if (a.length()==1){
-                result[0]="000"+a;
-                result[1]= "0";
-            }
-            else if (a.length()==4){
-                result[0] =a;
-                result[1] = "0";
-            }
+    public static String[] Test(String a) {
+        String result[] = new String[2];
+
+        if (a.length() > 4) {
+            result[0] = a.substring(1, 5);
+            result[1] = a.substring(0, 1);
+        } else if (a.length() == 3) {
+            result[0] = "0" + a;
+            result[1] = "0";
+        } else if (a.length() == 2) {
+            result[0] = "00" + a;
+            result[1] = "0";
+        } else if (a.length() == 1) {
+            result[0] = "000" + a;
+            result[1] = "0";
+        } else if (a.length() == 4) {
+            result[0] = a;
+            result[1] = "0";
+        }
         return result;
 
 
     }
-    public  static String add(String a,String b){
-        int b1= Integer.parseInt(a,2);
-        int b2= Integer.parseInt(b,2);
-        int sum = b1+b2;
+
+    public static String add(String a, String b) {
+        int b1 = Integer.parseInt(a, 2);
+        int b2 = Integer.parseInt(b, 2);
+        int sum = b1 + b2;
         return Integer.toBinaryString(sum);
         //return sum;
     }
-    public static String Bits(String a){
+
+    public static String Bits(String a) {
         String res = " ";
-        if(a.length()<4){
+        if (a.length() < 4) {
             res = "0" + a;
         }
         return res;
     }
-    static char flip(char c)
-    {
+
+    static char flip(char c) {
         return (c == '0') ? '1' : '0';
     }
-    public static String Complement(String a){
+
+    public static String Complement(String a) {
         int n = a.length();
         int i;
         String ones = "";
-        ones =  "";
-        for (i = 0; i < n; i++)
-        {
+        ones = "";
+        for (i = 0; i < n; i++) {
             ones += flip(a.charAt(i));
         }
         return ones;
     }
-    public static String XOR(String a,String b){
+
+    public static String XOR(String a, String b) {
         int b1 = Integer.parseInt(a, 2);
         int b2 = Integer.parseInt(b, 2);
-        int c= b1^b2;
+        int c = b1 ^ b2;
         return Integer.toBinaryString(c);
     }
-    public static String OU(String a,String b){
+
+    public static String OU(String a, String b) {
         int b1 = Integer.parseInt(a, 2);
         int b2 = Integer.parseInt(b, 2);
-        int c= b1|b2;
-        String res= Integer.toBinaryString(c);
-        while (res.length()<4){
-            res="0"+res;
+        int c = b1 | b2;
+        String res = Integer.toBinaryString(c);
+        while (res.length() < 4) {
+            res = "0" + res;
         }
         return res;
     }
-    public static String ET(String a,String b)
-    {
+
+    public static String ET(String a, String b) {
         int b1 = Integer.parseInt(a, 2);
         int b2 = Integer.parseInt(b, 2);
-        int c= b1&b2;
-        String res=Integer.toBinaryString(c);
-        while (res.length()<4){
-            res="0"+res;
+        int c = b1 & b2;
+        String res = Integer.toBinaryString(c);
+        while (res.length() < 4) {
+            res = "0" + res;
         }
         return res;
     }
-    public static void DB(int a){
-        int [] entier= new int[40] ;
+
+    public static void DB(int a) {
+        int[] entier = new int[40];
         int index = 0;
         int i;
-        while (a >0){
-            entier[index++] = a% 2;
-            a=a/2;
+        while (a > 0) {
+            entier[index++] = a % 2;
+            a = a / 2;
         }
-        for ( i =index - 1;i>=0;i-=1){
+        for (i = index - 1; i >= 0; i -= 1) {
             System.out.print(entier[i]);
         }
 
     }
-    public  void affichage(String a){
-            int res=Integer.parseInt(a,2);
-            switch (res){
-                case 0:
-                    Rect0.setFill(Color.RED);
-                    Rect1.setFill(Color.RED);
-                    Rect2.setFill(Color.RED);
-                    Rect3.setFill(Color.valueOf("#eeeeee"));
-                    Rect4.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    break;
-                case 1:
-                    Rect0.setFill(Color.valueOf("#eeeeee"));
-                    Rect2.setFill(Color.valueOf("#eeeeee"));
-                    Rect3.setFill(Color.valueOf("#eeeeee"));
-                    Rect5.setFill(Color.valueOf("#eeeeee"));
-                    Rect6.setFill(Color.valueOf("#eeeeee"));
-                    Rect1.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    break;
-                case 2:
-                    Rect0.setFill(Color.RED);
-                    Rect1.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    Rect2.setFill(Color.valueOf("#eeeeee"));
-                    Rect4.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 3:
-                    Rect0.setFill(Color.RED);
-                    Rect2.setFill(Color.valueOf("#eeeeee"));
-                    Rect1.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect5.setFill(Color.valueOf("#eeeeee"));
-                    Rect6.setFill(Color.RED);
-                    break;
-                case 4:
-                    Rect2.setFill(Color.RED);
-                    Rect1.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect0.setFill(Color.valueOf("#eeeeee"));
-                    Rect5.setFill(Color.valueOf("#eeeeee"));
-                    Rect6.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 5:
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    Rect1.setFill(Color.valueOf("#eeeeee"));
-                    Rect5.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 6:
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    Rect1.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 7:
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect1.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect3.setFill(Color.valueOf("#eeeeee"));
-                    Rect5.setFill(Color.valueOf("#eeeeee"));
-                    Rect6.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 8:
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    Rect1.setFill(Color.RED);
-                    break;
-                case 9:
-                    Rect5.setFill(Color.valueOf("#eeeeee"));
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect1.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    break;
-                case 10:
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect1.setFill(Color.RED);
-                    Rect6.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 11:
-                    Rect0.setFill(Color.valueOf("#eeeeee"));
-                    Rect1.setFill(Color.valueOf("#eeeeee"));
-                    Rect2.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    break;
-                case 12:
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    Rect1.setFill(Color.valueOf("#eeeeee"));
-                    Rect3.setFill(Color.valueOf("#eeeeee"));
-                    Rect4.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 13:
-                    Rect1.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect4.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    Rect2.setFill(Color.valueOf("#eeeeee"));
-                    Rect0.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 14:
-                    Rect2.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect6.setFill(Color.RED);
-                    Rect1.setFill(Color.valueOf("#eeeeee"));
-                    Rect0.setFill(Color.RED);
-                    Rect4.setFill(Color.valueOf("#eeeeee"));
-                    break;
-                case 15:
-                    Rect2.setFill(Color.RED);
-                    Rect0.setFill(Color.RED);
-                    Rect3.setFill(Color.RED);
-                    Rect5.setFill(Color.RED);
-                    Rect1.setFill(Color.valueOf("#eeeeee"));
-                    Rect4.setFill(Color.valueOf("#eeeeee"));
-                    Rect6.setFill(Color.valueOf("#eeeeee"));
 
-                    break;
-            }
+    public static String Compare(int a, int b) {
+        if (a == b) {
+            return "1";
+        } else
+            return "0";
+    }
+
+    public void affichage(String a) {
+        int res = Integer.parseInt(a, 2);
+        switch (res) {
+            case 0:
+                Rect0.setFill(Color.RED);
+                Rect1.setFill(Color.RED);
+                Rect2.setFill(Color.RED);
+                Rect3.setFill(Color.valueOf("#eeeeee"));
+                Rect4.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                break;
+            case 1:
+                Rect0.setFill(Color.valueOf("#eeeeee"));
+                Rect2.setFill(Color.valueOf("#eeeeee"));
+                Rect3.setFill(Color.valueOf("#eeeeee"));
+                Rect5.setFill(Color.valueOf("#eeeeee"));
+                Rect6.setFill(Color.valueOf("#eeeeee"));
+                Rect1.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                break;
+            case 2:
+                Rect0.setFill(Color.RED);
+                Rect1.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                Rect2.setFill(Color.valueOf("#eeeeee"));
+                Rect4.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 3:
+                Rect0.setFill(Color.RED);
+                Rect2.setFill(Color.valueOf("#eeeeee"));
+                Rect1.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect5.setFill(Color.valueOf("#eeeeee"));
+                Rect6.setFill(Color.RED);
+                break;
+            case 4:
+                Rect2.setFill(Color.RED);
+                Rect1.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect0.setFill(Color.valueOf("#eeeeee"));
+                Rect5.setFill(Color.valueOf("#eeeeee"));
+                Rect6.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 5:
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                Rect1.setFill(Color.valueOf("#eeeeee"));
+                Rect5.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 6:
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                Rect1.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 7:
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect1.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect3.setFill(Color.valueOf("#eeeeee"));
+                Rect5.setFill(Color.valueOf("#eeeeee"));
+                Rect6.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 8:
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                Rect1.setFill(Color.RED);
+                break;
+            case 9:
+                Rect5.setFill(Color.valueOf("#eeeeee"));
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect1.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                break;
+            case 10:
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect1.setFill(Color.RED);
+                Rect6.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 11:
+                Rect0.setFill(Color.valueOf("#eeeeee"));
+                Rect1.setFill(Color.valueOf("#eeeeee"));
+                Rect2.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                break;
+            case 12:
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                Rect1.setFill(Color.valueOf("#eeeeee"));
+                Rect3.setFill(Color.valueOf("#eeeeee"));
+                Rect4.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 13:
+                Rect1.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect4.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                Rect2.setFill(Color.valueOf("#eeeeee"));
+                Rect0.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 14:
+                Rect2.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect6.setFill(Color.RED);
+                Rect1.setFill(Color.valueOf("#eeeeee"));
+                Rect0.setFill(Color.RED);
+                Rect4.setFill(Color.valueOf("#eeeeee"));
+                break;
+            case 15:
+                Rect2.setFill(Color.RED);
+                Rect0.setFill(Color.RED);
+                Rect3.setFill(Color.RED);
+                Rect5.setFill(Color.RED);
+                Rect1.setFill(Color.valueOf("#eeeeee"));
+                Rect4.setFill(Color.valueOf("#eeeeee"));
+                Rect6.setFill(Color.valueOf("#eeeeee"));
+
+                break;
+        }
     }
 
     @FXML
     private Button btn2;
     @FXML
     private MenuBar menuBar;
-    @FXML private JFXToggleNode ToggleNodeS;
-    @FXML private JFXToggleNode toggleNodeB;
-    @FXML private Menu Exporter;
-    @FXML private Rectangle Rectangle;
-    @FXML private void modeSombre(){
-        System.out.println("SOmbre");
-       anchor.setStyle("-fx-background-color:#75807e;");
-       Title.setStyle("-fx-Text:white");
-       ToggleNodeS.setStyle("-fx-background-color: #2ba46c");
-        toggleNodeB.setStyle("-fx-background-color: #2ba46c");
-        ToggleNode.setStyle("-fx-background-color: #2ba46c");
-        Daty.setStyle("-fx-text-fill:white");
-        Ora.setStyle("-fx-text-fill:white");
-        Exporter.setStyle("-fx-text-fill:white");
-        Title.setStyle("-fx-text-fill:white;-fx-font-size:25px;-fx-font-family:Junicode");
+    @FXML
+    private JFXToggleNode ToggleNodeS;
+    @FXML
+    private JFXToggleNode toggleNodeB;
+    @FXML
+    private Menu Exporter;
+    @FXML
+    private Rectangle Rectangle;
 
-        Rectangle.setFill(Color.web("#2ba46c"));
-        Rectangle.setStroke(Color.web("#226847"));
-        Rect0.setFill(Color.WHITE);
-        Rect1.setFill(Color.WHITE);
-        Rect2.setFill(Color.WHITE);
-        Rect3.setFill(Color.WHITE);
-        Rect4.setFill(Color.WHITE);
-        Rect5.setFill(Color.WHITE);
-        Rect6.setFill(Color.WHITE);
-                //Title
 
-    }
-    @FXML private void modeClair(){
-
-        Rectangle.setFill(Color.PINK);
-        Rectangle.setStroke(Color.web("#cd6a7c"));
-        anchor.setStyle("-fx-background-color:white;");
-        Daty.setStyle("-fx-text-fill:black");
-        Ora.setStyle("-fx-text-fill:black");
-        Title.setStyle("-fx-text-fill:black;-fx-font-size:25px;-fx-font-family:Junicode");
-        ToggleNodeS.setStyle("-fx-background-color: pink");
-        toggleNodeB.setStyle("-fx-background-color: pink");
-        ToggleNode.setStyle("-fx-background-color: pink");
-        Rect0.setFill(Color.web("#e4dede"));
-        Rect1.setFill(Color.web("#e4dede"));
-        Rect2.setFill(Color.web("#e4dede"));
-        Rect3.setFill(Color.web("#e4dede"));
-        Rect4.setFill(Color.web("#e4dede"));
-        Rect5.setFill(Color.web("#e4dede"));
-        Rect6.setFill(Color.web("#e4dede"));
-    }
-    @FXML private MenuItem save;
+    @FXML
+    private MenuItem save;
 
     @FXML
     private JFXToggleNode ToggleNode;
-    @FXML
-    private void quitter(){
-        String[] options = new String[2];
-        options[0] = new String("OUI");
-        options[1] = new String("NON");
-       int res= JOptionPane.showOptionDialog(null,"Voulez-vous vraiment quitter?","Confirmation", 0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
 
-        if(res ==0){
+    @FXML
+    private void quitter() {
+        String[] options = new String[2];
+        options[0] = new String("Oui");
+        options[1] = new String("Non");
+        JOptionPane pane = new JOptionPane();
+        int res = pane.showOptionDialog(null, "Voulez-vous vraiment quitter?", "Confirmation", 0, JOptionPane.INFORMATION_MESSAGE, null, options, null);
+
+        if (res == 0) {
             System.exit(0);
         }
     }
+
     @FXML
     private void handleButtonAction() throws IOException {
         Stage stage = new Stage();
@@ -2037,17 +2211,21 @@ public class Controller implements Initializable {
         stage.show();*/
 
     }
-    @FXML private  Label Ora;
-    @FXML private MenuItem quitter;
+
+    @FXML
+    private Label Ora;
+    @FXML
+    private MenuItem quitter;
+
     @Override
-    public void initialize(URL url,ResourceBundle rs) {
-      //        ToggleNode.setStyle("-fx-background-color:pink;");
-       CarryOut.setStyle("-fx-font-size:15px;-fx-text-fill:white");
+    public void initialize(URL url, ResourceBundle rs) {
+        //        ToggleNode.setStyle("-fx-background-color:pink;");
+        CarryOut.setStyle("-fx-font-size:15px;-fx-text-fill:white");
         Daty.setText(daty.Day());
         Ora.setText(daty.Ora());
-       save.setAccelerator(KeyCombination.keyCombination("shortcut +S"));
-       quitter.setAccelerator(KeyCombination.keyCombination("shortcut +Q"));
-            //Rect1.setFill(Color.RED);
+        save.setAccelerator(KeyCombination.keyCombination("shortcut +S"));
+        quitter.setAccelerator(KeyCombination.keyCombination("shortcut +Q"));
+        //Rect1.setFill(Color.RED);
 //            Line.setStroke(Color.RED);
         // btn.setStyle("-fx-background-color: linear-gradient(to right,#00fffc,#fff600); -fx-background-radius: 25; -fx-border-radius: 25;");
         //btn.setStyle(" -fx-background-radius: 100; -fx-height:30px; -fx-width:30px; -fx-background-color:violet; ");
@@ -2224,8 +2402,7 @@ public class Controller implements Initializable {
         });
         toggleButtonS2.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
-            public
-            void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
                 if (toggleButtonS2.isSelected()) {
                     toggleButtonS2.setText("1");
                     lineS2.setStroke(Color.GREEN);
